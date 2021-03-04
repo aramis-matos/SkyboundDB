@@ -1,1 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2021-03-04T18:51:49.085Z" agent="5.0 (X11)" version="14.4.4" etag="6IcuqfTYbQCS5fr5UDqN" type="github"><diagram id="RnbQh7GMF7V51kCzHjvy">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2021-03-04T18:55:18.632Z" agent="5.0 (X11)" etag="RbrMXhGLn4k0u-9l1JdY" version="14.4.4" type="github">
+  <diagram id="RnbQh7GMF7V51kCzHjvy" name="Page-1">
+    <mxGraphModel dx="771" dy="1127" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="r9z4ZJyq8KTvveEOfMBs-1" value="User interface" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="170" width="430" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="r9z4ZJyq8KTvveEOfMBs-2" value="User interface commands/lambdas" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="290" width="430" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="r9z4ZJyq8KTvveEOfMBs-4" value="Character frame data database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="410" width="430" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="r9z4ZJyq8KTvveEOfMBs-5" value="System support (OS)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="530" width="430" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
