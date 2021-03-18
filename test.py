@@ -8,11 +8,10 @@ def printblockname(a):
             print("air", end=' ')
         if a[k] == 't':
             print("throw", end=' ')
-        if a[k] == 't':
-            print("throw", end=' ')
+        if a[k] == 'h':
+            print("high", end=' ')
         if a[k] == 'l':
             print("low", end=' ')
-
 
 
 df = pd.read_csv("gran_fd.csv")
