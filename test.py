@@ -14,7 +14,7 @@ def printBlockName(a):
         if a[k] == 'l':
             print("low", end=' ')
         if a[k] == ',':
-            print("/", end='')
+            print("/", end=' ')
     print()
 
 
