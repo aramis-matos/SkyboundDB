@@ -46,3 +46,20 @@ class Character:
         print()
 
 
+def compute_advantage(dealer, dealer_move, responder, responder_move):
+    if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
+        print("Not Applicable")
+        return
+    dealer_move_on_block = int(dealer_move[5])
+    responder_move_startup = list(str(responder_move[2]).split('+'))
+    for startup_num in range(len(responder_move_startup)):
+        print(dealer.name + ":", end=' ')
+        print(str(dealer_move_on_block + int(responder_move_startup[startup_num])), end=' / ')
+        print(responder.name + ":", end=' ')
+        print(str((dealer_move_on_block + int(responder_move_startup[startup_num]))*-1))
+
+
+
+
+
+
