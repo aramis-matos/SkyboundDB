@@ -1,6 +1,6 @@
 import pandas as pd
 
-def printblockname(a):
+def printBlockName(a):
     for k in range(len(a)):
         if a[k] == 'm':
             print("mid", end=' ')
@@ -23,7 +23,7 @@ for i in range(len(moves)):
     data = list(df[moves[i]])
     print("Damage: " + str(data[0]))
     print("Guard: ", end=' ')
-    printblockname(str(data[1]))
+    printBlockName(str(data[1]))
     print()
     print("Startup: " + str(data[2]))
     print("Active: " + str(data[3]))
