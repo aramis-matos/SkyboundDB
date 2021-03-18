@@ -9,7 +9,7 @@ class Character:
 
     @staticmethod
     def get_moves_and_stats(name):
-        temp_df = pd.read_csv(str(name)+"_fd.csv")
+        temp_df = pd.read_csv("CharactersFrameData/"+str(name)+"_fd.csv")
         temp_moves = list(temp_df.columns)
         temp_stats = list(temp_df.index)
         return temp_moves, temp_stats, temp_df
