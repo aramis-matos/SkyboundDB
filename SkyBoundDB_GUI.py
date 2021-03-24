@@ -3,7 +3,7 @@ from PIL import ImageTk, Image
 from Character import Character
 root = Tk()
 
-#def Character_images():
+#def character_images():
 #    roster_list = ['Gran', 'Ferry', 'Djeeta']
 #    photo_extension = '.(Granblue.Fantasy).jpg'
 #
