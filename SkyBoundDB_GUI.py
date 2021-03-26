@@ -42,8 +42,8 @@ class Character_select:
         Djeetabutton.pack(side = LEFT, anchor = N)
 
     def example_selection_mapping(self):
-        move_2Lbutton = Button(self.frame2, text = "Moves Printed in Terminal")
-        move_2Lbutton.pack(fill = X , pady = 10)
+        move_2Lbutton = Button(self.frame2, text = "Moves Printed in Terminal", command = self.change_state2)
+        move_2Lbutton.pack(pady = 10)
 
     def change_state(self, state):
         print("From Character_Select to Move_Select")
@@ -55,6 +55,11 @@ class Character_select:
             Character(0,"djeeta").print_fd()
         self.frame.pack_forget()
         self.frame2.pack()
+
+    def change_state2(self):
+        print("From Move_Select to Character_Select")
+        self.frame2.pack_forget()
+        self.frame.pack()
 
 
 p = Character_select()
