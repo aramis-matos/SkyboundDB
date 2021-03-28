@@ -1,5 +1,15 @@
 import pandas as pd
+import re
 
+'''
+move[0] = Damage
+move[1] = Guard
+move[2] = Startup
+move[3] = Active
+move[4] = Recovery
+move[5] = On block
+move[6] = On hit
+'''
 
 class Character:
     def __init__(self, id_num, name):
@@ -50,14 +60,16 @@ def compute_advantage(dealer, dealer_move, responder, responder_move):
     if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
         print("Not Applicable")
         return
-    dealer_move_on_block = int(dealer_move[5])
-    responder_move_startup = list(str(responder_move[2]).split('+'))
-    for startup_num in range(len(responder_move_startup)):
-        print(dealer.name + ":", end=' ')
-        print(str(dealer_move_on_block + int(responder_move_startup[startup_num])), end=' / ')
-        print(responder.name + ":", end=' ')
-        print(str((dealer_move_on_block + int(responder_move_startup[startup_num]))*-1))
-
+    dealer_move_on_block = list(re.split(r',|\+|aprx', str(dealer_move[5])))
+    responder_move_startup = list(re.split(r',|\+|aprx', str(responder_move[2])))
+    for onBlockNum in range(len(dealer_move_on_block)):
+        print()
+        for startupNum in range(len(responder_move_startup)):
+            advantage = (int(dealer_move_on_block[onBlockNum]) + int(responder_move_startup[startupNum]))
+            print(dealer.name + ":", end=' ')
+            print(str(advantage), end=' / ')
+            print(responder.name + ":", end=' ')
+            print(str(advantage*-1))
 
 
 

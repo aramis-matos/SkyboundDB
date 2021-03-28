@@ -1,7 +1,8 @@
 from Character import Character, compute_advantage
 
-djeeta = Character('0', "djeeta")
-djeeta.print_fd()
+gran = Character('0', "gran")
+granMove = gran.df['236236H']
+zeta = Character('0', "zeta")
+zetaMove = zeta.df["236L/5L"]
 
-
-#gram.print_fd()
+compute_advantage(zeta, zetaMove, gran, granMove)
