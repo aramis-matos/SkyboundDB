@@ -1,12 +1,8 @@
 from Character import Character, compute_advantage
 
-gram = Character(0, "gran")
-gram2 = Character(0, "gran")
-gram_move = gram.df['214L']
-gram2_move = gram2.df['ACXX']
+gran = Character('0', "gran")
+granMove = gran.df['236236H']
+zeta = Character('0', "zeta")
+zetaMove = zeta.df["236L/5L"]
 
-compute_advantage(gram, gram_move, gram2, gram2_move)
-
-
-
-#gram.print_fd()
+compute_advantage(zeta, zetaMove, gran, granMove)
