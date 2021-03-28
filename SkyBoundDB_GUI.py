@@ -40,15 +40,15 @@ class Character_select:
         # Djeeta Button that prints out the frame data
         Djeetabutton = Button(self.frame, image = self.skyfarer[2], command = lambda:[self.change_state(2)])
         Djeetabutton.pack(side = LEFT, anchor = N)
-
+#how will it print different buttons for each move?
     def example_selection_mapping(self):
-        move_2Lbutton = Button(self.frame2, text = "Moves Printed in Terminal", command = self.change_state2)
-        move_2Lbutton.pack(pady = 10)
+        move_ACXXXbutton = Button(self.frame2, text = self.test_move_printing(self.test_move_formatting('gran')) , command = self.change_state2)
+        move_ACXXXbutton.pack(pady = 10)
 
     def change_state(self, state):
         print("From Character_Select to Move_Select")
         if (state == 1):
-            pass
+            self.test_move_printing("gran")
         elif (state == 0):
             Character(0,"gran").print_fd()
         elif (state == 2):
@@ -60,6 +60,20 @@ class Character_select:
         print("From Move_Select to Character_Select")
         self.frame2.pack_forget()
         self.frame.pack()
+
+    #def present_move(self, to_format):
+
+    def test_move_printing(self, chr_name):
+        chr_selected = Character('0', str(chr_name))
+        chr_selectedMove = list(chr_selected.df[chr_selected.moves[4]])
+        string_format = chr_selected.moves[4] + "\n"
+        for i in range(len(chr_selectedMove)):
+            string_format = string_format + str(chr_selectedMove[i]) + "\n"
+        print(string_format)
+        return string_format
+#do without taking any parameters
+    def test_move_formatting(self, to_format):
+        return
 
 
 p = Character_select()
