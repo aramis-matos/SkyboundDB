@@ -1,15 +1,16 @@
-from tkinter import *
+import tkinter as tk
 from PIL import ImageTk, Image
 from Character import Character
+import os
 
 #idea: use config to change to different Frames and thus access others
 class Character_select:
     def __init__(self):
-        self.root = Tk()
+        self.root = tk.Tk()
         self.root.title("SkyBoundDB")
 
-        self.frame = Frame(self.root)
-        self.frame2 = Frame(self.root)
+        self.frame = tk.Frame(self.root)
+        self.frame2 = tk.Frame(self.root)
 
         # Default packed frame
         self.frame.pack()
@@ -20,7 +21,9 @@ class Character_select:
         self.root.mainloop()
 
     def character_images(self):
-        roster_list = ['Gran.(Granblue.Fantasy).jpg', 'Ferry.(Granblue.Fantasy).jpg', 'Djeeta.(Granblue.Fantasy).jpg']
+        baseDir = os.path.dirname(os.path.abspath(__file__))
+        baseDir = baseDir+"/CharacterImages/"
+        roster_list = [baseDir+'Gran.(Granblue.Fantasy).jpg', baseDir+'Ferry.(Granblue.Fantasy).jpg', baseDir+'Djeeta.(Granblue.Fantasy).jpg']
         New_Character_photo = []
 
         for i in range(0, len(roster_list)):
@@ -32,17 +35,17 @@ class Character_select:
 
     def button_mapping(self):
         # Ferry Button
-        Ferrybutton = Button(self.frame, image = self.skyfarer[1], command = lambda:[self.change_state(1)])
-        Ferrybutton.pack(side = LEFT, anchor = N)
+        Ferrybutton = tk.Button(self.frame, image = self.skyfarer[1], command = lambda:[self.change_state(1)])
+        Ferrybutton.pack(side = tk.LEFT, anchor = tk.N)
         # Gran Button that prints out the frame data
-        Granbutton = Button(self.frame, image = self.skyfarer[0], command = lambda:[self.change_state(0)])
-        Granbutton.pack(side = LEFT, anchor = N)
+        Granbutton = tk.Button(self.frame, image = self.skyfarer[0], command = lambda:[self.change_state(0)])
+        Granbutton.pack(side = tk.LEFT, anchor = tk.N)
         # Djeeta Button that prints out the frame data
-        Djeetabutton = Button(self.frame, image = self.skyfarer[2], command = lambda:[self.change_state(2)])
-        Djeetabutton.pack(side = LEFT, anchor = N)
+        Djeetabutton = tk.Button(self.frame, image = self.skyfarer[2], command = lambda:[self.change_state(2)])
+        Djeetabutton.pack(side = tk.LEFT, anchor = tk.N)
 #how will it print different buttons for each move?
     def example_selection_mapping(self):
-        move_ACXXXbutton = Button(self.frame2, text = self.test_move_printing(), command = self.change_state2)
+        move_ACXXXbutton = tk.Button(self.frame2, text = self.test_move_printing(), command = self.change_state2)
         move_ACXXXbutton.pack(pady = 10)
 
     def change_state(self, state):
