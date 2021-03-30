@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from Character import Character
+from CharacterClass.Character import Character
 import os
 
 #idea: use config to change to different Frames and thus access others
