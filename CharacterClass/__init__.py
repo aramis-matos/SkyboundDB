@@ -1,1 +1,0 @@
-from Character import *
