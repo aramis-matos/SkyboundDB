@@ -23,11 +23,7 @@ class Character:
     @staticmethod
     def get_moves_and_stats(name):
         baseDir = os.path.dirname(os.path.abspath(__file__))
-        if baseDir.find("/") == -1:
-            baseDir = baseDir.replace("/","\\")
-            baseDir = baseDir + "\\CharactersFrameData\\" +str(name)+"_fd.csv"
-        else:
-           baseDir = baseDir+"/CharactersFrameData/"+str(name)+"_fd.csv"
+        baseDir = baseDir+"/CharactersFrameData/"+str(name)+"_fd.csv"
         temp_df = pd.read_csv(baseDir)
         temp_moves = list(temp_df.columns)
         temp_stats = list(temp_df.index)
