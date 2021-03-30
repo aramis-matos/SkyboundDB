@@ -42,13 +42,13 @@ class Character_select:
         Djeetabutton.pack(side = LEFT, anchor = N)
 #how will it print different buttons for each move?
     def example_selection_mapping(self):
-        move_ACXXXbutton = Button(self.frame2, text = self.test_move_printing(self.test_move_formatting('gran')) , command = self.change_state2)
+        move_ACXXXbutton = Button(self.frame2, text = self.test_move_printing, command = self.change_state2)
         move_ACXXXbutton.pack(pady = 10)
 
     def change_state(self, state):
         print("From Character_Select to Move_Select")
         if (state == 1):
-            self.test_move_printing("gran")
+            pass
         elif (state == 0):
             Character(0,"gran").print_fd()
         elif (state == 2):
@@ -61,19 +61,23 @@ class Character_select:
         self.frame2.pack_forget()
         self.frame.pack()
 
-    #def present_move(self, to_format):
 
-    def test_move_printing(self, chr_name):
+    def test_move_printing(self):
+        chr_name = 'gran'
+        make_touple = ["Move: ", "Damage: ", "Guard: ", "Startup: ", "Active: ", "Recovery: ", "On Block: ", "On Hit: "]
+
         chr_selected = Character('0', str(chr_name))
         chr_selectedMove = list(chr_selected.df[chr_selected.moves[4]])
         string_format = chr_selected.moves[4] + "\n"
         for i in range(len(chr_selectedMove)):
-            string_format = string_format + str(chr_selectedMove[i]) + "\n"
+            string_format = string_format + str(make_touple[i]) + str(chr_selectedMove[i]) + "\n"
         print(string_format)
         return string_format
+
 #do without taking any parameters
-    def test_move_formatting(self, to_format):
-        return
+#    def test_move_formatting(self, to_format):
+#        for move_get in range(len(to_format)):
+#        return
 
 
 p = Character_select()
