@@ -56,9 +56,24 @@ class Character:
                 print("high", end=' ')
             if a[k] == 'l':
                 print("low", end=' ')
+            if a[k] == 'i':
+                print("airthrow", end=' ')
             if a[k] == ',':
                 print("/", end=' ')
         print()
+    
+    def returnMoveStr(self,move,moveName):
+        string = moveName
+        string += "Damage: " + str(move[0])
+        string += "Guard: " + str(move[1])
+        string += "Startup: " + str(move[2])
+        string += "Active: " + str(move[3])
+        string += "Recovery: " + str(move[4])
+        string += "On Block: " + str(move[5])
+        string += "On Hit: " + str(move[6])
+        return string
+
+
 
 
 def compute_advantage(dealer, dealer_move, responder, responder_move):

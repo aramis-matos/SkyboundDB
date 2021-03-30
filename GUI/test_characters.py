@@ -1,4 +1,4 @@
-from characterClass.Character import Character, compute_advantage
+from CharacterClass.Character import Character, compute_advantage
 
 gran = Character('0', "gran")
 granMove = gran.df['236236H']

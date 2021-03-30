@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from characterClass.Character import Character
+from CharacterClass.Character import Character, compute_advantage
 import os
 
 #idea: use config to change to different Frames and thus access others
@@ -16,8 +16,8 @@ class Character_select:
         self.frame.pack()
 
         self.skyfarer = Character_select.character_images(self)
-        self.print_buttons = Character_select.button_mapping(self)
-        self.print_button_list = Character_select.example_selection_mapping(self)
+        Character_select.button_mapping(self)
+        Character_select.example_selection_mapping(self)
         self.root.mainloop()
 
     def character_images(self):
