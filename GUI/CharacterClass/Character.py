@@ -61,16 +61,37 @@ class Character:
             if a[k] == ',':
                 print("/", end=' ')
         print()
-    
-    def returnMoveStr(self,move,moveName):
-        string = moveName
-        string += "Damage: " + str(move[0])
-        string += "Guard: " + str(move[1])
-        string += "Startup: " + str(move[2])
-        string += "Active: " + str(move[3])
-        string += "Recovery: " + str(move[4])
-        string += "On Block: " + str(move[5])
-        string += "On Hit: " + str(move[6])
+
+    @staticmethod
+    def returnMoveStr(move, moveName):
+        string = " " + moveName
+        string += " Damage: " + str(move[0])
+        string += " Guard: " + Character.return_block_name(str(move[1]))
+        string += " Startup: " + str(move[2])
+        string += " Active: " + str(move[3])
+        string += " Recovery: " + str(move[4])
+        string += " On Block: " + str(move[5])
+        string += " On Hit: " + str(move[6])
+        return string
+
+    @staticmethod
+    def return_block_name(a):
+        string = ""
+        for k in range(len(a)):
+            if a[k] == 'm':
+                string += "mid "
+            if a[k] == 'a':
+                string += "air "
+            if a[k] == 't':
+                string += "throw "
+            if a[k] == 'h':
+                string += "high "
+            if a[k] == 'l':
+                string += "low "
+            if a[k] == 'i':
+                string += "airthrow "
+            if a[k] == ',':
+                string += "/"
         return string
 
 
@@ -90,6 +111,9 @@ def compute_advantage(dealer, dealer_move, responder, responder_move):
             print(str(advantage), end=' / ')
             print(responder.name + ":", end=' ')
             print(str(advantage*-1))
+
+
+
 
 
 
