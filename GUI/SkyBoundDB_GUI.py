@@ -3,8 +3,6 @@ from PIL import ImageTk, Image
 from CharacterClass.Character import Character, compute_advantage, characterRoster
 import os
 
-'idea: use config to change to different Frames and thus access others'
-
 
 class Character_select:
     def __init__(self):
@@ -68,7 +66,7 @@ class Character_select:
         for k in range(len(moves)):
             self.buttons_text.append(tk.StringVar())
             moveButtons.append(tk.Label(self.frame2, textvariable=self.buttons_text[k], fg='white', bg='gray'))
-                                         #command=[self.print_moves_to_button(temp_character, moves[k], k)]))
+            # command=[self.print_moves_to_button(temp_character, moves[k], k)]))
             self.buttons_text[k] = self.print_moves_to_button(temp_character, moves[k], k)
 
             columnNum += 1
@@ -78,12 +76,12 @@ class Character_select:
             moveButtons[k].grid(row=rowNum, column=columnNum)
         entryLabel = tk.Label(self.frame2, text="Put Move Name Here")
         self.getNameOfMove = tk.Entry(self.frame2)
-        entryLabel.grid(row=rowNum+1, column=1)
-        cancelButton = tk.Button(self.frame2, text="Cancel", command=lambda: [self.setEntryValue(), self.select_move(char_id, self.tempVal), self.change_state2()], fg='red')
-        cancelButton.grid(row=rowNum+1, column=0, pady=5)
-        self.getNameOfMove.grid(row=rowNum+1, column=2)
-
-
+        entryLabel.grid(row=rowNum + 1, column=1)
+        cancelButton = tk.Button(self.frame2, text="Cancel",
+                                 command=lambda: [self.setEntryValue(), self.select_move(char_id, self.tempVal),
+                                                  self.change_state2()], fg='red')
+        cancelButton.grid(row=rowNum + 1, column=0, pady=5)
+        self.getNameOfMove.grid(row=rowNum + 1, column=2)
 
     def change_state(self):
         print("From Character_Select to Move_Select")
