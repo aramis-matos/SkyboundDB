@@ -19,7 +19,6 @@ class Character_select:
 
         self.skyfarer = Character_select.character_images(self)
         Character_select.button_mapping(self)
-        Character_select.show_moves(self,0)
         self.root.mainloop()
 
     def character_images(self):
@@ -32,12 +31,12 @@ class Character_select:
         imageSuffix = '.(Granblue.Fantasy).jpg'
         rosterList = []
         for characters in range(len(characterRoster)):
-            rosterList.append(baseDir+characterRoster[characters]+imageSuffix)
+            rosterList.append(baseDir + characterRoster[characters] + imageSuffix)
         New_Character_photo = []
 
         for i in range(0, len(rosterList)):
             Character_photo = Image.open(rosterList[i])
-            Character_resized = Character_photo.resize((138,138), Image.ANTIALIAS)
+            Character_resized = Character_photo.resize((138, 138), Image.ANTIALIAS)
             New_Character_photo.append(ImageTk.PhotoImage(Character_resized))
 
         return New_Character_photo
@@ -45,19 +44,30 @@ class Character_select:
     def button_mapping(self):
         faceButtons = []
         for i in range(len(self.skyfarer)):
-            faceButtons.append(tk.Button(self.frame, image = self.skyfarer[i], command=lambda: [self.change_state(), self.show_moves(i)]))
+            faceButtons.append(tk.Button(self.frame, image=self.skyfarer[i],
+                                         command=lambda: [self.change_state(), self.show_moves(i)]))
             faceButtons[i].pack(side=tk.LEFT, anchor=tk.N)
-
 
     def show_moves(self, char_id):
         self.buttons_text = []
+
         temp_character = Character(0, characterRoster[char_id])
         moves = temp_character.moves
+        rowNum = 0
+        columnNum = 0
         moveButtons = []
         for k in range(len(moves)):
             self.buttons_text.append(tk.StringVar())
-            moveButtons.append(tk.Button(self.frame2, textvariable=self.buttons_text[k], command=self.print_moves_to_button(temp_character, moves[k], k)))
-            moveButtons[k].pack()
+            moveButtons.append(tk.Button(self.frame2, textvariable=self.buttons_text[k],
+                                         command=[self.print_moves_to_button(temp_character, moves[k], k)]))
+
+            columnNum += 1
+            if columnNum >= 3:
+                columnNum = 0
+                rowNum += 1
+            moveButtons[k].grid(row=rowNum, column=columnNum)
+        cancelButton = tk.Button(self.frame2, text="Cancel", command=lambda: [self.change_state2()], fg='red')
+        cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
     def change_state(self):
         print("From Character_Select to Move_Select")
@@ -69,8 +79,7 @@ class Character_select:
         self.frame2.pack_forget()
         self.frame.pack()
 
-
-    def print_moves_to_button(self ,character, move, buttons_text_id):
+    def print_moves_to_button(self, character, move, buttons_text_id):
         moveToPrint = character.df[move]
         string = character.returnMoveStr(moveToPrint, move)
         self.buttons_text[buttons_text_id].set(string)
