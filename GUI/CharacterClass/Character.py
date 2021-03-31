@@ -112,6 +112,7 @@ def compute_advantage(dealer, dealer_move, responder, responder_move):
             print(responder.name + ":", end=' ')
             print(str(advantage*-1))
 
+characterRoster = ["gran", "djeeta", "zeta"]
 
 
 
