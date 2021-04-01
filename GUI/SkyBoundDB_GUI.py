@@ -42,46 +42,35 @@ class Character_select:
 
     def button_mapping(self):
         faceButtons = []
-        faceButtons.append(
-            tk.Button(self.frame, image=self.skyfarer[0],
-                      command=lambda: [self.change_state(), self.show_moves(0)]))
-        faceButtons.append(
-            tk.Button(self.frame, image=self.skyfarer[1],
-                      command=lambda: [self.change_state(), self.show_moves(1)]))
-        faceButtons.append(
-            tk.Button(self.frame, image=self.skyfarer[2],
-                      command=lambda: [self.change_state(), self.show_moves(2)]))
-        faceButtons[0].pack(side=tk.LEFT, anchor=tk.N)
-        faceButtons[1].pack(side=tk.LEFT, anchor=tk.N)
-        faceButtons[2].pack(side=tk.LEFT, anchor=tk.N)
+        for i in range(len(characterRoster)):
+            faceButtons.append(
+                tk.Button(self.frame, image=self.skyfarer[i],
+                          command=lambda z=i: [self.change_state(), self.show_moves(z)]))
+            faceButtons[i].pack(side=tk.LEFT, anchor=tk.N)
 
     def show_moves(self, char_id):
         self.buttons_text = []
 
         temp_character = Character(0, characterRoster[char_id])
-        moves = temp_character.moves
+        self.moves = temp_character.moves
         rowNum = 0
         columnNum = 0
-        moveButtons = []
-        for k in range(len(moves)):
+        self.moveButtons = []
+        for k in range(len(self.moves)):
             self.buttons_text.append(tk.StringVar())
-            moveButtons.append(tk.Label(self.frame2, textvariable=self.buttons_text[k], fg='white', bg='gray'))
-            # command=[self.print_moves_to_button(temp_character, moves[k], k)]))
-            self.buttons_text[k] = self.print_moves_to_button(temp_character, moves[k], k)
-
+            self.moveButtons.append(tk.Button(self.frame2, textvariable=self.buttons_text[k], fg='white', bg='gray',
+                                              command=lambda j=k: [self.select_move(char_id, self.moves[j]),
+                                                                   self.change_state2()]))
+            self.print_moves_to_button(temp_character, self.moves[k], k)
             columnNum += 1
             if columnNum >= 3:
                 columnNum = 0
                 rowNum += 1
-            moveButtons[k].grid(row=rowNum, column=columnNum)
-        entryLabel = tk.Label(self.frame2, text="Put Move Name Here")
-        self.getNameOfMove = tk.Entry(self.frame2)
-        entryLabel.grid(row=rowNum + 1, column=1)
+            self.moveButtons[k].grid(row=rowNum, column=columnNum)
+
         cancelButton = tk.Button(self.frame2, text="Cancel",
-                                 command=lambda: [self.setEntryValue(), self.select_move(char_id, self.tempVal),
-                                                  self.change_state2()], fg='red')
-        cancelButton.grid(row=rowNum + 1, column=0, pady=5)
-        self.getNameOfMove.grid(row=rowNum + 1, column=2)
+                                 command=lambda: [self.change_state2()], fg='red')
+        cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
     def change_state(self):
         print("From Character_Select to Move_Select")
