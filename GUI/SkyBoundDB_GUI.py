@@ -104,6 +104,7 @@ class Character_select:
         if self.selectedNum >= 2:
             self.compareButton['state'] = tk.NORMAL
 
+
     def to_compare_screen(self):
         self.character_frame.pack_forget()
         self.compare_screen_frame = tk.Frame(self.root, bg='red')
