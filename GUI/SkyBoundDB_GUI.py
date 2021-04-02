@@ -110,5 +110,4 @@ class Character_select:
         self.compare_screen_frame.pack()
 
 
-
 p = Character_select()
