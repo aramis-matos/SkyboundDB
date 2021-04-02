@@ -4,3 +4,4 @@ get-pip.py
 CharacterClass/__pycache__/Character.cpython-39.pyc
 GUI/CharacterClass/__pycache__/__init__.cpython-39.pyc
 GUI/CharacterClass/__pycache__/Character.cpython-39.pyc
+.vscode/settings.json
