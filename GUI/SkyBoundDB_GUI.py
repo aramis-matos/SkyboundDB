@@ -95,6 +95,7 @@ class Character_select:
         if len(self.selected_moves) >= 2:
             self.selected_moves.pop(0)
         self.selected_moves.append((characterRoster[char_id], move))
+        print(self.selected_moves)
 
     def incrementSelectedNum(self):
         self.selectedNum += 1
