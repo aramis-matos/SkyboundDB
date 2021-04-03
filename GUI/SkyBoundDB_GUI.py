@@ -75,6 +75,15 @@ class Character_select:
                                  command=lambda: [self.to_character_select()], fg='red')
         cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
+    #def show_comparisons(self):
+    #    if (filter("", self.buttons_text[0]) == True):
+    #       #self.results_label = tk.Label(self.compare_screen_frame
+    #        compute_advantage(self.buttons_text[0][0], self.buttons_text[0][1], 
+    #                          self.buttons_text[1][0], self.buttons_text[1][1])
+    #    else:
+    #        compute_advantage(self.buttons_text[1][0], self.buttons_text[1][1],
+    #                          self.buttons_text[0][0], self.buttons_text[0][1])
+
     def to_move_select(self):
         print("From Character_Select to Move_Select")
         self.character_frame.pack_forget()
@@ -95,6 +104,7 @@ class Character_select:
         if len(self.selected_moves) >= 2:
             self.selected_moves.pop(0)
         self.selected_moves.append((characterRoster[char_id], move))
+        print(self.selected_moves)
 
     def incrementSelectedNum(self):
         self.selectedNum += 1
@@ -107,6 +117,7 @@ class Character_select:
 
     def to_compare_screen(self):
         self.character_frame.pack_forget()
+    #    self.show_comparisons()
         self.compare_screen_frame = tk.Frame(self.root, bg='red')
         self.compare_screen_frame.pack()
 
