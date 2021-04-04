@@ -31,11 +31,13 @@ class Character_select:
         imageSuffix = '.(Granblue.Fantasy).jpg'
         rosterList = []
         for characters in range(len(characterRoster)):
-            rosterList.append(baseDir + characterRoster[characters] + imageSuffix)
+            rosterList.append(
+                baseDir + characterRoster[characters] + imageSuffix)
         New_Character_photo = []
         for i in range(0, len(rosterList)):
             Character_photo = Image.open(rosterList[i])
-            Character_resized = Character_photo.resize((138, 138), Image.ANTIALIAS)
+            Character_resized = Character_photo.resize(
+                (138, 138), Image.ANTIALIAS)
             New_Character_photo.append(ImageTk.PhotoImage(Character_resized))
 
         return New_Character_photo
@@ -50,7 +52,7 @@ class Character_select:
                                                                   self.update_compare_button()])
             faceButtons[i].pack(side=tk.LEFT, anchor=tk.N)
         self.compareButton = tk.Button(self.character_frame, text='Compare', state=tk.DISABLED,
-                                       command=lambda: [print(self.selected_moves), self.to_compare_screen()])
+                                       command=lambda: [print(self.selected_moves), self.to_compare_screen(), self.compare_screen()])
         self.compareButton.pack()
 
     def show_moves(self, char_id):
@@ -112,6 +114,7 @@ class Character_select:
         if len(self.selected_moves) >= 2:
             self.selected_moves.pop(0)
         self.selected_moves.append((characterRoster[char_id], move))
+        print(self.selected_moves)
 
     def incrementSelectedNum(self):
         self.selectedNum += 1
@@ -125,7 +128,6 @@ class Character_select:
 
     def to_compare_screen(self):
         self.character_frame.pack_forget()
-        self.compare_screen_frame = tk.Frame(self.root, bg='red')
         self.compare_screen_frame.pack()
         self.show_comparisons()
 
@@ -134,6 +136,24 @@ class Character_select:
         self.selectedNum = 0
         self.update_compare_button()
         self.compare_screen_frame.destroy()
+        self.character_frame.pack()
+
+
+    def initialize_selectedNum(self):
+        self.selectedNum = 0
+
+    def compare_screen(self):
+        self.comparison = tk.Label(self.compare_screen_frame, text='myShit')
+        self.comparison.pack()
+        cancelButton = tk.Button(self.compare_screen_frame, text="return", command= self.from_compare_to_character_select)
+        cancelButton.pack()
+
+    def from_compare_to_character_select(self):
+        self.selected_moves.clear()
+        self.initialize_selectedNum()
+        self.update_compare_button()
+        self.compare_screen_frame.destroy()
+        self.compare_screen_frame = tk.Frame(self.root, bg='red')
         self.character_frame.pack()
 
 
