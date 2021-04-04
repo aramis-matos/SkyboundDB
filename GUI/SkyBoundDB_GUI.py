@@ -47,7 +47,7 @@ class Character_select:
         for i in range(len(characterRoster)):
             faceButtons.append(
                 tk.Button(self.character_frame, image=self.skyfarer[i],
-                          command=lambda z=i: [self.to_move_select(), self.incrementSelectedNum(), self.show_moves(z),
+                          command=lambda z=i: [self.to_move_select(), self.show_moves(z),
                                                self.update_compare_button()]))
             faceButtons[i].bind("<Button-3>", lambda event, k=i: [self.select_move(k, ""), self.incrementSelectedNum(),
                                                                   self.update_compare_button()])
@@ -67,7 +67,7 @@ class Character_select:
             self.buttons_text.append(tk.StringVar())
             self.moveButtons.append(tk.Button(self.move_frame, textvariable=self.buttons_text[k], fg='white', bg='gray',
                                               command=lambda j=k: [self.select_move(char_id, self.moves[j]),
-                                                                   self.to_character_select()]))
+                                                                   self.to_character_select(), self.incrementSelectedNum()]))
             self.print_moves_to_button(temp_character, self.moves[k], k)
             columnNum += 1
             if columnNum >= 3:
