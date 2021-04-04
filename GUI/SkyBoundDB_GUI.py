@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk, Image
-from CharacterClass.Character import Character, compute_advantage, characterRoster
+from CharacterClass.Character import Character, compute_advantage, compute_advantage2, characterRoster
 import os
 
 
@@ -12,6 +12,7 @@ class Character_select:
         self.root.title("SkyBoundDB")
         self.character_frame = tk.Frame(self.root)
         self.move_frame = tk.Frame(self.root, bg='black')
+        self.compare_screen_frame = tk.Frame(self.root, bg = 'red')
 
         # Default packed frame
         self.character_frame.pack()
@@ -44,8 +45,7 @@ class Character_select:
         for i in range(len(characterRoster)):
             faceButtons.append(
                 tk.Button(self.character_frame, image=self.skyfarer[i],
-                          command=lambda z=i: [self.to_move_select(), self.incrementSelectedNum(), self.show_moves(z),
-                                               self.update_compare_button()]))
+                          command=lambda z=i: [self.to_move_select(), self.show_moves(z), self.update_compare_button()]))
             faceButtons[i].bind("<Button-3>", lambda event, k=i: [self.select_move(k, ""), self.incrementSelectedNum(),
                                                                   self.update_compare_button()])
             faceButtons[i].pack(side=tk.LEFT, anchor=tk.N)
@@ -64,7 +64,7 @@ class Character_select:
             self.buttons_text.append(tk.StringVar())
             self.moveButtons.append(tk.Button(self.move_frame, textvariable=self.buttons_text[k], fg='white', bg='gray',
                                               command=lambda j=k: [self.select_move(char_id, self.moves[j]),
-                                                                   self.to_character_select()]))
+                                                                   self.to_character_select(),  self.incrementSelectedNum(), self.update_compare_button()]))
             self.print_moves_to_button(temp_character, self.moves[k], k)
             columnNum += 1
             if columnNum >= 3:
@@ -75,14 +75,27 @@ class Character_select:
                                  command=lambda: [self.to_character_select()], fg='red')
         cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
-    #def show_comparisons(self):
-    #    if (filter("", self.buttons_text[0]) == True):
-    #       #self.results_label = tk.Label(self.compare_screen_frame
-    #        compute_advantage(self.buttons_text[0][0], self.buttons_text[0][1], 
-    #                          self.buttons_text[1][0], self.buttons_text[1][1])
-    #    else:
-    #        compute_advantage(self.buttons_text[1][0], self.buttons_text[1][1],
-    #                          self.buttons_text[0][0], self.buttons_text[0][1])
+    def show_comparisons(self):
+        self.label_text = []
+        self.resultLabels = []
+        dealer = Character('0', self.selected_moves[0][0])
+        dealer_move = dealer.df[(self.selected_moves[0][1])]
+        responder = Character('0', self.selected_moves[1][0])
+        responder_move = responder.df[(self.selected_moves[1][1])]
+        rowNum = 0
+        columnNum = 0
+            
+        for k in range(len(self.selected_moves)):
+            self.label_text.append(tk.StringVar())
+            self.resultLabels.append(tk.Label(self.compare_screen_frame, textvariable = self.label_text[k], fg = 'white', bg = 'gray'))
+            self.print_results_to_label(dealer, dealer_move, responder, responder_move, k)
+            columnNum += 1
+            if columnNum >= 3:
+                columnNum = 0
+                rowNum += 1
+            self.resultLabels[k].grid(row = rowNum, column = columnNum)
+        returnbutton = tk.Button(self.compare_screen_frame, text = "Return to first frame", command = self.reset_values)
+        returnbutton.grid(row=rowNum + 1, column = 1, pady = 5)
 
     def to_move_select(self):
         print("From Character_Select to Move_Select")
@@ -99,12 +112,15 @@ class Character_select:
         moveToPrint = character.df[move]
         string = character.returnMoveStr(moveToPrint, move)
         self.buttons_text[buttons_text_id].set(string)
+    
+    def print_results_to_label(self, dealer, dealer_move, responder, responder_move, label_text_id):
+        resultToPrint = compute_advantage2(dealer, dealer_move, responder, responder_move)
+        self.label_text[label_text_id].set(resultToPrint)
 
     def select_move(self, char_id, move):
         if len(self.selected_moves) >= 2:
             self.selected_moves.pop(0)
         self.selected_moves.append((characterRoster[char_id], move))
-        print(self.selected_moves)
 
     def incrementSelectedNum(self):
         self.selectedNum += 1
@@ -113,13 +129,22 @@ class Character_select:
     def update_compare_button(self):
         if self.selectedNum >= 2:
             self.compareButton['state'] = tk.NORMAL
-
+        else:
+            self.compareButton['state'] = tk.DISABLED
 
     def to_compare_screen(self):
         self.character_frame.pack_forget()
-    #    self.show_comparisons()
         self.compare_screen_frame = tk.Frame(self.root, bg='red')
         self.compare_screen_frame.pack()
+        self.show_comparisons()
+
+    def reset_values(self):
+        self.selected_moves.clear()
+        self.selectedNum = 0
+        self.update_compare_button()
+        self.compare_screen_frame.destroy()
+        self.character_frame.pack()
+
 
 
 p = Character_select()
