@@ -95,6 +95,7 @@ class Character_select:
         if len(self.selected_moves) >= 2:
             self.selected_moves.pop(0)
         self.selected_moves.append((characterRoster[char_id], move))
+        print(self.selected_moves)
 
     def incrementSelectedNum(self):
         self.selectedNum += 1
@@ -103,6 +104,7 @@ class Character_select:
     def update_compare_button(self):
         if self.selectedNum >= 2:
             self.compareButton['state'] = tk.NORMAL
+
 
     def to_compare_screen(self):
         self.character_frame.pack_forget()
