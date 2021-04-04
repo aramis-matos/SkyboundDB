@@ -76,26 +76,16 @@ class Character_select:
         cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
     def show_comparisons(self):
-        self.label_text = []
-        self.resultLabels = []
+        self.label_text = tk.StringVar()
         dealer = Character('0', self.selected_moves[0][0])
         dealer_move = dealer.df[(self.selected_moves[0][1])]
         responder = Character('0', self.selected_moves[1][0])
         responder_move = responder.df[(self.selected_moves[1][1])]
-        rowNum = 0
-        columnNum = 0
-            
-        for k in range(len(self.selected_moves)):
-            self.label_text.append(tk.StringVar())
-            self.resultLabels.append(tk.Label(self.compare_screen_frame, textvariable = self.label_text[k], fg = 'white', bg = 'gray'))
-            self.print_results_to_label(dealer, dealer_move, responder, responder_move, k)
-            columnNum += 1
-            if columnNum >= 3:
-                columnNum = 0
-                rowNum += 1
-            self.resultLabels[k].grid(row = rowNum, column = columnNum)
+        self.resultLabels = tk.Label(self.compare_screen_frame, textvariable = self.label_text, fg = 'white', bg = 'gray')
+        self.print_results_to_label(dealer, dealer_move, responder, responder_move)
+        self.resultLabels.grid()
         returnbutton = tk.Button(self.compare_screen_frame, text = "Return to first frame", command = self.reset_values)
-        returnbutton.grid(row=rowNum + 1, column = 1, pady = 5)
+        returnbutton.grid(row=1, pady = 5)
 
     def to_move_select(self):
         print("From Character_Select to Move_Select")
@@ -113,9 +103,10 @@ class Character_select:
         string = character.returnMoveStr(moveToPrint, move)
         self.buttons_text[buttons_text_id].set(string)
     
-    def print_results_to_label(self, dealer, dealer_move, responder, responder_move, label_text_id):
+    def print_results_to_label(self, dealer, dealer_move, responder, responder_move):
         resultToPrint = compute_advantage2(dealer, dealer_move, responder, responder_move)
-        self.label_text[label_text_id].set(resultToPrint)
+        print(resultToPrint)
+        self.label_text.set(resultToPrint)
 
     def select_move(self, char_id, move):
         if len(self.selected_moves) >= 2:
