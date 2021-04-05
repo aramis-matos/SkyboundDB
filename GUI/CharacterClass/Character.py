@@ -95,8 +95,6 @@ class Character:
         return string
 
 
-
-
 def compute_advantage(dealer, dealer_move, responder, responder_move):
     if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
         print("Not Applicable")
@@ -112,13 +110,26 @@ def compute_advantage(dealer, dealer_move, responder, responder_move):
             print(responder.name + ":", end=' ')
             print(str(advantage*-1))
 
+
+def compute_advantage2(dealer, dealer_move, responder, responder_move):
+    if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
+        print("Not Applicable")
+        return
+    string = " "
+    dealer_move_on_block = list(re.split(r',|\+|aprx|/', str(dealer_move[5])))
+    responder_move_startup = list(re.split(r',|\+|aprx|/', str(responder_move[2])))
+    for onBlockNum in range(len(dealer_move_on_block)):
+        string += '\n'
+        for startupNum in range(len(responder_move_startup)):
+            advantage = (int(dealer_move_on_block[onBlockNum]) + int(responder_move_startup[startupNum]))
+            string += (dealer.name + ":" + ' ')
+            string += (str(advantage) + ' / ')
+            string += (responder.name + ":" + ' ')
+            string += (str(advantage*-1))
+    return string
+
+
 characterRoster = ["gran", "djeeta", "zeta", "ferry", "katalina", "zooey"]
-
-
-
-
-
-
 
 
 
