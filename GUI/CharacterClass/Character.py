@@ -129,16 +129,7 @@ def compute_advantage2(dealer, dealer_move, responder, responder_move):
     return string
 
 
-characterRoster = ["gran", "djeeta", "zeta"]
-
-
-
-gran = Character(0,"gran")
-zeta = Character(0,"zeta")
-gran_move = gran.df["c.L"]
-zeta_move = zeta.df['c.L']
-
-#print(compute_advantage2(gran,gran_move,zeta,zeta_move))
+characterRoster = ["gran", "djeeta", "zeta", "ferry", "katalina", "zooey"]
 
 
 
