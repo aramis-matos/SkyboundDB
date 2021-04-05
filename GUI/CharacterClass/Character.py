@@ -115,7 +115,6 @@ def compute_advantage2(dealer, dealer_move, responder, responder_move):
     if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
         print("Not Applicable")
         return
-    string = " "
     dealer_move_on_block = list(re.split(r',|\+|aprx|/', str(dealer_move[5])))
     responder_move_startup = list(re.split(r',|\+|aprx|/', str(responder_move[2])))
     for onBlockNum in range(len(dealer_move_on_block)):
@@ -126,6 +125,7 @@ def compute_advantage2(dealer, dealer_move, responder, responder_move):
             string += (str(advantage) + ' / ')
             string += (responder.name + ":" + ' ')
             string += (str(advantage*-1))
+            string += "\n"
     return string
 
 
