@@ -112,6 +112,7 @@ def compute_advantage(dealer, dealer_move, responder, responder_move):
 
 
 def compute_advantage2(dealer, dealer_move, responder, responder_move):
+    string = ""
     if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
         print("Not Applicable")
         return
