@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.ttk as ttk
 from PIL import ImageTk, Image
 from CharacterClass.Character import Character, compute_advantage, compute_advantage2, characterRoster
 import os
@@ -10,9 +11,20 @@ class Character_select:
         self.selectedNum = 0
         self.root = tk.Tk()
         self.root.title("SkyBoundDB")
+        self.root.geometry("%dx%d+0+0" % (self.root.winfo_screenwidth(), self.root.winfo_screenheight()))
+
+        # Frames used in program
         self.character_frame = tk.Frame(self.root)
-        self.move_frame = tk.Frame(self.root, bg='black')
+        self.move_frame = tk.Frame(self.root)
         self.compare_screen_frame = tk.Frame(self.root, bg='black')
+
+        # Canvas/Scrollbar creation
+        self.canvas = tk.Canvas(self.move_frame)
+        self.scrollbar = tk.ttk.Scrollbar(self.move_frame, orient = tk.VERTICAL, command = self.canvas.yview)
+        self.canvas.configure(yscrollcommand = self.scrollbar.set)
+        self.canvas.bind('<Configure>', lambda e: self.canvas.configure(scrollregion = self.canvas.bbox("all")))
+        self.scrolling_frame = tk.Frame(self.canvas)
+        self.canvas.create_window((0,0), window = self.scrolling_frame, anchor = "nw")
 
         # Default packed frame
         self.character_frame.pack()
@@ -20,7 +32,8 @@ class Character_select:
         self.skyfarer = Character_select.character_images(self)
         Character_select.button_mapping(self)
         self.root.mainloop()
-
+    
+    
     def character_images(self):
         baseDir = os.path.dirname(os.path.abspath(__file__))
         if baseDir.find(r'/') == -1:
@@ -41,6 +54,31 @@ class Character_select:
             New_Character_photo.append(ImageTk.PhotoImage(Character_resized))
 
         return New_Character_photo
+
+    def move_images(self, char_id):
+        baseDir = os.path.dirname(os.path.abspath(__file__))
+        if baseDir.find(r'/') == -1:
+            baseDir = baseDir.replace(r'/', r'\\')
+            baseDir += "\\CharacterImages\\"
+        else:
+            baseDir += "/CharacterImages/"
+        imageSuffix = '_GBVS.png'
+        moveList = []
+        temp_character = Character(0, characterRoster[char_id])
+        for characters in range(len(temp_character.moves)):
+            if os.path.exists(baseDir + characterRoster[char_id] + str(temp_character.moves[characters]) + imageSuffix):
+                moveList.append(
+                    baseDir + characterRoster[char_id] + str(temp_character.moves[characters]) + imageSuffix)
+            else:
+                moveList.append(baseDir + "GBVS_mainScreen.jpg")
+        New_Move_Photo = []
+        for i in range(0, len(moveList)):
+            Move_photo = Image.open(moveList[i])
+            Move_resized = Move_photo.resize(
+                (125, 125), Image.ANTIALIAS)
+            New_Move_Photo.append(ImageTk.PhotoImage(Move_resized))
+
+        return New_Move_Photo
 
     def button_mapping(self):
         faceButtons = []
@@ -71,12 +109,13 @@ class Character_select:
         self.buttons_text = []
         temp_character = Character(0, characterRoster[char_id])
         self.moves = temp_character.moves
+        self.skyfarer_moves = self.move_images(char_id)
         rowNum = 0
         columnNum = 0
         self.moveButtons = []
         for k in range(len(self.moves)):
             self.buttons_text.append(tk.StringVar())
-            self.moveButtons.append(tk.Button(self.move_frame, textvariable=self.buttons_text[k], fg='white', bg='gray',
+            self.moveButtons.append(tk.Button(self.scrolling_frame, image =  self.skyfarer_moves[k], textvariable=self.buttons_text[k], compound = "left", fg='white', bg='gray',
                                               command=lambda j=k: [self.select_move(char_id, self.moves[j]),
                                                                    self.to_character_select(),  self.incrementSelectedNum(), self.update_compare_button(), self.update_dealer_and_responder_labels()]))
             self.print_moves_to_button(temp_character, self.moves[k], k)
@@ -85,8 +124,8 @@ class Character_select:
                 columnNum = 0
                 rowNum += 1
             self.moveButtons[k].grid(row=rowNum, column=columnNum)
-        cancelButton = tk.Button(self.move_frame, text="Cancel",
-                                 command=lambda: [self.to_character_select()], fg='black')
+        cancelButton = tk.Button(self.scrolling_frame, text="Cancel",
+                                 command=lambda: [self.to_character_select()])
         cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
     def show_comparisons(self):
@@ -107,12 +146,23 @@ class Character_select:
     def to_move_select(self):
         print("From Character_Select to Move_Select")
         self.character_frame.pack_forget()
-        self.move_frame.pack()
+        self.move_frame.pack(fill = tk.BOTH, expand = 1)
+        self.canvas.pack(side = tk.LEFT, fill = tk.BOTH, expand = 1)
+        self.scrollbar.pack(side = tk.RIGHT, fill = tk.Y)
 
     def to_character_select(self):
         print("From Move_Select to Character_Select")
         self.move_frame.destroy()
-        self.move_frame = tk.Frame(self.root, bg='black')
+        self.scrolling_frame.destroy()
+        self.canvas.destroy()
+        self.scrollbar.destroy()
+        self.move_frame = tk.Frame(self.root)
+        self.canvas = tk.Canvas(self.move_frame)
+        self.scrollbar = tk.ttk.Scrollbar(self.move_frame, orient = tk.VERTICAL, command = self.canvas.yview)
+        self.canvas.configure(yscrollcommand = self.scrollbar.set)
+        self.canvas.bind('<Configure>', lambda e: self.canvas.configure(scrollregion = self.canvas.bbox("all")))
+        self.scrolling_frame = tk.Frame(self.canvas)
+        self.canvas.create_window((0,0), window = self.scrolling_frame, anchor = "nw")
         self.character_frame.pack()
 
     def print_moves_to_button(self, character, move, buttons_text_id):
