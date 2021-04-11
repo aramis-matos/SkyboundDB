@@ -115,19 +115,28 @@ def compute_advantage2(dealer, dealer_move, responder, responder_move):
     string = ""
     if str(dealer_move[5]) == 'nan' or str(responder_move[2]) == 'nan':
         print("Not Applicable")
-        return
+        return "N/A", "blue"
     dealer_move_on_block = list(re.split(r',|\+|aprx|/', str(dealer_move[5])))
     responder_move_startup = list(re.split(r',|\+|aprx|/', str(responder_move[2])))
     for onBlockNum in range(len(dealer_move_on_block)):
         string += '\n'
         for startupNum in range(len(responder_move_startup)):
-            advantage = (int(dealer_move_on_block[onBlockNum]) + int(responder_move_startup[startupNum]))
+            dealer_advantage = (int(dealer_move_on_block[onBlockNum]) + int(responder_move_startup[startupNum]))
             string += (dealer.name + ":" + ' ')
-            string += (str(advantage) + ' / ')
+            string += (str(dealer_advantage) + ' / ')
             string += (responder.name + ":" + ' ')
-            string += (str(advantage*-1))
+            responder_advantage =  str(dealer_advantage*-1)
+            string += str(responder_advantage)
             string += "\n"
-    return string
+    return string, advantage_color(dealer_advantage)
+
+def advantage_color(num):
+    if num < 0:
+        return "red"
+    if num > 0:
+        return "green"
+    else:
+        return "black"
 
 
 characterRoster = ["gran", "djeeta", "zeta", "ferry", "katalina", "zooey"]

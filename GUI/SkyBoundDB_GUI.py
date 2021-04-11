@@ -138,10 +138,10 @@ class Character_select:
         dealer_move = dealer.df[(self.selected_moves[0][1])]
         responder = Character('0', self.selected_moves[1][0])
         responder_move = responder.df[(self.selected_moves[1][1])]
-        self.resultLabels = tk.Label(
-            self.compare_screen_frame, textvariable=self.label_text, fg='white', bg='gray')
-        self.print_results_to_label(
+        dealer_color = self.print_results_to_label(
             dealer, dealer_move, responder, responder_move)
+        self.resultLabels = tk.Label(
+            self.compare_screen_frame, textvariable=self.label_text, fg=dealer_color, bg='gray')
         self.resultLabels.grid()
         returnbutton = tk.Button(
             self.compare_screen_frame, text="Return to first frame", command=self.reset_values)
@@ -175,9 +175,10 @@ class Character_select:
         self.buttons_text[buttons_text_id].set(string)
 
     def print_results_to_label(self, dealer, dealer_move, responder, responder_move):
-        resultToPrint = compute_advantage2(
+        resultToPrint, dealer_color = compute_advantage2(
             dealer, dealer_move, responder, responder_move)
         self.label_text.set(resultToPrint)
+        return dealer_color
 
     def select_move(self, char_id, move):
         if len(self.selected_moves) >= 2:
