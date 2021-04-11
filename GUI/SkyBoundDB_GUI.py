@@ -38,9 +38,9 @@ class Character_select:
         baseDir = os.path.dirname(os.path.abspath(__file__))
         if baseDir.find(r'/') == -1:
             baseDir = baseDir.replace(r'/', r'\\')
-            baseDir += "\\CharacterImages\\"
+            baseDir += "\\CharacterImages\\character_select_images\\"
         else:
-            baseDir += "/CharacterImages/"
+            baseDir += "/CharacterImages/character_select_images/"
         imageSuffix = '.(Granblue.Fantasy).jpg'
         rosterList = []
         for characters in range(len(characterRoster)):
@@ -57,20 +57,24 @@ class Character_select:
 
     def move_images(self, char_id):
         baseDir = os.path.dirname(os.path.abspath(__file__))
+        default_image_dir = baseDir[:]
         if baseDir.find(r'/') == -1:
             baseDir = baseDir.replace(r'/', r'\\')
-            baseDir += "\\CharacterImages\\"
+            default_image_dir = default_image_dir.replace(r'/', r'\\')
+            baseDir += f"\\CharacterImages\\{characterRoster[char_id]}_move_images\\"
+            default_image_dir += "\\CharacterImages\\"
         else:
-            baseDir += "/CharacterImages/"
+            baseDir += f"/CharacterImages/{characterRoster[char_id]}_move_images/"
+            default_image_dir += "/CharacterImages/"
         imageSuffix = '_GBVS.png'
         moveList = []
         temp_character = Character(0, characterRoster[char_id])
         for characters in range(len(temp_character.moves)):
-            if os.path.exists(baseDir + characterRoster[char_id] + str(temp_character.moves[characters]) + imageSuffix):
+            if os.path.exists(baseDir + characterRoster[char_id] + str(temp_character.moves[characters]).encode('unicode-escape').decode() + imageSuffix):
                 moveList.append(
                     baseDir + characterRoster[char_id] + str(temp_character.moves[characters]) + imageSuffix)
             else:
-                moveList.append(baseDir + "GBVS_mainScreen.jpg")
+                moveList.append(default_image_dir + "GBVS_mainScreen.jpg")
         New_Move_Photo = []
         for i in range(0, len(moveList)):
             Move_photo = Image.open(moveList[i])

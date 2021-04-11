@@ -134,3 +134,6 @@ characterRoster = ["gran", "djeeta", "zeta", "ferry", "katalina", "zooey"]
 
 
 
+djeeta = Character(0,"djeeta")
+
+print(djeeta.moves)
