@@ -249,12 +249,14 @@ class Character_select:
         rowNum = 0
         columnNum = 0
         results_labels = []
+        string = ""
+        advantage_color = ""
         for k in range(len(responder_moves)):
+            string, advantage_color = compute_advantage2(dealer, dealer_move, responder, responder.df[responder_moves[k]])
             labels_text.append(tk.StringVar())
             results_labels.append(tk.Label(
-                self.compare_screen_frame, textvariable=labels_text[k], fg='white', bg='gray'))
-            labels_text[k].set(str(responder_moves[k]) + "\n" + str(compute_advantage2(
-                dealer, dealer_move, responder, responder.df[responder_moves[k]])))
+                self.compare_screen_frame, textvariable=labels_text[k], fg=advantage_color, bg='gray'))
+            labels_text[k].set(f'{str(responder_moves[k])}\n{string}')
             columnNum += 1
             if columnNum >= 3:
                 columnNum = 0
