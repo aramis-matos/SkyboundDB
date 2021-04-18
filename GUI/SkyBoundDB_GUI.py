@@ -11,7 +11,8 @@ class Character_select:
         self.selectedNum = 0
         self.root = tk.Tk()
         self.root.title("SkyBoundDB")
-        self.root.geometry("%dx%d+0+0" % (self.root.winfo_screenwidth(), self.root.winfo_screenheight()))
+        self.root.geometry(
+            "%dx%d+0+0" % (self.root.winfo_screenwidth(), self.root.winfo_screenheight()))
 
         # Frames used in program
         self.character_frame = tk.Frame(self.root)
@@ -20,21 +21,23 @@ class Character_select:
 
         # Canvas/Scrollbar creation
         self.canvas = tk.Canvas(self.move_frame)
-        self.scrollbar = tk.ttk.Scrollbar(self.move_frame, orient = tk.VERTICAL, command = self.canvas.yview)
-        self.canvas.configure(yscrollcommand = self.scrollbar.set)
-        self.canvas.bind('<Configure>', lambda e: self.canvas.configure(scrollregion = self.canvas.bbox("all")))
+        self.scrollbar = tk.ttk.Scrollbar(
+            self.move_frame, orient=tk.VERTICAL, command=self.canvas.yview)
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+        self.canvas.bind('<Configure>', lambda e: self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")))
         self.scrolling_frame = tk.Frame(self.canvas)
-        self.canvas.create_window((0,0), window = self.scrolling_frame, anchor = "nw")
+        self.canvas.create_window(
+            (0, 0), window=self.scrolling_frame, anchor="nw")
 
         # Default packed frame
         self.character_frame.pack()
 
-        self.skyfarer = Character_select.character_images(self)
+        self.skyfarer = Character_select.character_images(self,138,138)
         Character_select.button_mapping(self)
         self.root.mainloop()
-    
-    
-    def character_images(self):
+
+    def character_images(self, x_size, y_size):
         baseDir = os.path.dirname(os.path.abspath(__file__))
         if baseDir.find(r'/') == -1:
             baseDir = baseDir.replace(r'/', r'\\')
@@ -50,7 +53,7 @@ class Character_select:
         for i in range(0, len(rosterList)):
             Character_photo = Image.open(rosterList[i])
             Character_resized = Character_photo.resize(
-                (138, 138), Image.ANTIALIAS)
+                (x_size, y_size), Image.ANTIALIAS)
             New_Character_photo.append(ImageTk.PhotoImage(Character_resized))
 
         return New_Character_photo
@@ -79,7 +82,7 @@ class Character_select:
         for i in range(0, len(moveList)):
             Move_photo = Image.open(moveList[i])
             Move_resized = Move_photo.resize(
-                (125, 125), Image.ANTIALIAS)
+                (46, 46), Image.ANTIALIAS)
             New_Move_Photo.append(ImageTk.PhotoImage(Move_resized))
 
         return New_Move_Photo
@@ -100,7 +103,7 @@ class Character_select:
                                                                   self.update_compare_button(), self.update_dealer_and_responder_labels()])
             faceButtons[i].pack(side=tk.LEFT, anchor=tk.N)
         self.compareButton = tk.Button(self.character_frame, text='Compare', state=tk.DISABLED,
-                                       command=lambda: [print(self.selected_moves), self.to_compare_screen()])
+                                       command=lambda: self.to_compare_screen())
         self.compareButton.pack()
         self.dealer_move_label = tk.Label(
             self.character_frame, textvariable=self.dealer_move)
@@ -119,7 +122,7 @@ class Character_select:
         self.moveButtons = []
         for k in range(len(self.moves)):
             self.buttons_text.append(tk.StringVar())
-            self.moveButtons.append(tk.Button(self.scrolling_frame, image =  self.skyfarer_moves[k], textvariable=self.buttons_text[k], compound = "left", fg='white', bg='gray',
+            self.moveButtons.append(tk.Button(self.scrolling_frame, image=self.skyfarer_moves[k], textvariable=self.buttons_text[k], compound="left", fg='white', bg='gray',
                                               command=lambda j=k: [self.select_move(char_id, self.moves[j]),
                                                                    self.to_character_select(),  self.incrementSelectedNum(), self.update_compare_button(), self.update_dealer_and_responder_labels()]))
             self.print_moves_to_button(temp_character, self.moves[k], k)
@@ -140,19 +143,23 @@ class Character_select:
         responder_move = responder.df[(self.selected_moves[1][1])]
         dealer_color = self.print_results_to_label(
             dealer, dealer_move, responder, responder_move)
+        tk.Label(self.compare_scrolling_frame, image=self.smaller_skyfarer[characterRoster.index(
+            self.selected_moves[0][0])]).grid(row=0, column=0)
         self.resultLabels = tk.Label(
-            self.compare_screen_frame, textvariable=self.label_text, fg=dealer_color, bg='gray')
-        self.resultLabels.grid()
+            self.compare_scrolling_frame, textvariable=self.label_text, fg=dealer_color, bg='gray')
+        self.resultLabels.grid(row=0, column=1)
+        tk.Label(self.compare_scrolling_frame, image=self.smaller_skyfarer[characterRoster.index(
+            self.selected_moves[1][0])]).grid(row=0, column=2)
         returnbutton = tk.Button(
-            self.compare_screen_frame, text="Return to first frame", command=self.reset_values)
-        returnbutton.grid(row=1, pady=5)
+            self.compare_scrolling_frame, text="Cancel", command=self.reset_values)
+        returnbutton.grid(row=1, column=1)
 
     def to_move_select(self):
         print("From Character_Select to Move_Select")
         self.character_frame.pack_forget()
-        self.move_frame.pack(fill = tk.BOTH, expand = 1)
-        self.canvas.pack(side = tk.LEFT, fill = tk.BOTH, expand = 1)
-        self.scrollbar.pack(side = tk.RIGHT, fill = tk.Y)
+        self.move_frame.pack(fill=tk.BOTH, expand=1)
+        self.canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
+        self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
     def to_character_select(self):
         print("From Move_Select to Character_Select")
@@ -162,11 +169,14 @@ class Character_select:
         self.scrollbar.destroy()
         self.move_frame = tk.Frame(self.root)
         self.canvas = tk.Canvas(self.move_frame)
-        self.scrollbar = tk.ttk.Scrollbar(self.move_frame, orient = tk.VERTICAL, command = self.canvas.yview)
-        self.canvas.configure(yscrollcommand = self.scrollbar.set)
-        self.canvas.bind('<Configure>', lambda e: self.canvas.configure(scrollregion = self.canvas.bbox("all")))
+        self.scrollbar = tk.ttk.Scrollbar(
+            self.move_frame, orient=tk.VERTICAL, command=self.canvas.yview)
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+        self.canvas.bind('<Configure>', lambda e: self.canvas.configure(
+            scrollregion=self.canvas.bbox("all")))
         self.scrolling_frame = tk.Frame(self.canvas)
-        self.canvas.create_window((0,0), window = self.scrolling_frame, anchor = "nw")
+        self.canvas.create_window(
+            (0, 0), window=self.scrolling_frame, anchor="nw")
         self.character_frame.pack()
 
     def print_moves_to_button(self, character, move, buttons_text_id):
@@ -202,8 +212,22 @@ class Character_select:
         self.responder_move_label['textvariable'] = self.responder_move.set(
             self.responder_move_str)
         self.character_frame.pack_forget()
-        self.compare_screen_frame = tk.Frame(self.root, bg='black')
-        self.compare_screen_frame.pack()
+        self.compare_screen_frame = tk.Frame(self.root)
+        # self.compare_screen_frame.pack()
+        self.compare_canvas = tk.Canvas(self.compare_screen_frame)
+        self.compare_scrollbar = tk.ttk.Scrollbar(
+            self.compare_screen_frame, orient=tk.VERTICAL, command=self.compare_canvas.yview)
+        self.compare_canvas.configure(
+            yscrollcommand=self.compare_scrollbar.set)
+        self.compare_canvas.bind("<Configure>", lambda e: self.compare_canvas.configure(
+            scrollregion=self.compare_canvas.bbox("all")))
+        self.compare_scrolling_frame = tk.Frame(self.compare_canvas)
+        self.compare_canvas.create_window(
+            (0, 0), window=self.compare_scrolling_frame, anchor="nw")
+        self.compare_screen_frame.pack(fill=tk.BOTH, expand=1)
+        self.compare_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=1)
+        self.compare_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        self.smaller_skyfarer = self.character_images(46,46)
         if self.selected_moves[1][1] == "":
             self.show_comparisons_all()
         else:
@@ -214,6 +238,7 @@ class Character_select:
         self.selectedNum = 0
         self.update_compare_button()
         self.compare_screen_frame.destroy()
+        self.compare_scrolling_frame.destroy()
         self.character_frame.pack()
 
     def initialize_selectedNum(self):
@@ -251,20 +276,29 @@ class Character_select:
         results_labels = []
         string = ""
         advantage_color = ""
+        dealer_photo_arr = []
+        responder_photo_arr = []
         for k in range(len(responder_moves)):
-            string, advantage_color = compute_advantage2(dealer, dealer_move, responder, responder.df[responder_moves[k]])
+            dealer_photo_arr.append(tk.Label(self.compare_scrolling_frame, image=self.smaller_skyfarer[characterRoster.index(
+            self.selected_moves[0][0])],pady= 5))
+            responder_photo_arr.append(tk.Label(self.compare_scrolling_frame, image=self.smaller_skyfarer[characterRoster.index(
+            self.selected_moves[1][0])],pady= 5))
+            string, advantage_color = compute_advantage2(
+                dealer, dealer_move, responder, responder.df[responder_moves[k]])
             labels_text.append(tk.StringVar())
             results_labels.append(tk.Label(
-                self.compare_screen_frame, textvariable=labels_text[k], fg=advantage_color, bg='gray'))
+                self.compare_scrolling_frame, textvariable=labels_text[k], fg=advantage_color))
             labels_text[k].set(f'{str(responder_moves[k])}\n{string}')
-            columnNum += 1
             if columnNum >= 3:
                 columnNum = 0
                 rowNum += 1
-            results_labels[k].grid(row=rowNum, column=columnNum)
-        cancelButton = tk.Button(self.compare_screen_frame, text="Cancel",
+            dealer_photo_arr[k].grid(row = rowNum, column=columnNum*3)
+            results_labels[k].grid(row=rowNum, column=columnNum*3+1)
+            responder_photo_arr[k].grid(row = rowNum, column=columnNum*3+2)
+            columnNum += 1
+        cancelButton = tk.Button(self.compare_scrolling_frame, text="Cancel",
                                  command=lambda: [self.from_compare_to_character_select()], fg='black')
-        cancelButton.grid(row=rowNum + 1, column=1, pady=5)
+        cancelButton.grid(row=rowNum + 1, column=4, pady=5, rowspan=3)
 
 
 p = Character_select()
