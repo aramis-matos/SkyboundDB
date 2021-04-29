@@ -6,6 +6,110 @@ import os
 
 
 class Character_select:
+    '''
+    A class used to present the gui for SkyboundDB
+
+    Attributes
+    ----------
+
+    selected_moves : list
+        a list that contains tuples that hold selected moves
+    selected_num : int
+        holds how many characters have been selected
+    root : tkinter.Tk
+        main tkinter frame
+    character_frame : tkinter.Frame
+        default menu, characters can be selected from here
+    move_frame : tkinter.Frame
+        contains the moves of a chosen character
+        can be accessed through character_frame
+    canvas : tkinter.canvas
+        where character_moves are placed 
+    scrollbar : tkinter.ttk.Scrollbar
+        used to scroll through move_frame
+    scrolling_frame : tkinter.Frame
+        used to accommodate scrollbar 
+    skyfarer : list
+        contains the images of the characters from characterRoster
+    dealer_move_str : str
+        is a constant value
+    dealer_move : tkinter.StringVar
+        holds the value of the the selected dealer character.
+    responder_move_str : str
+        is a constant value
+    responder_move : tkinter.StringVar
+        holds the value of the the selected responder character
+    dealer_move_label : tkinter.Label
+        contains dealer_move and presents it
+    responder_move_label : tkinter.Label
+        contains responder_move and presents it
+    buttons_text : list
+        contains tkinter.StringVar objects corresponding
+        to a character's moves
+    moves : list
+        contains the moves variable from a Character object
+    skyfarer_moves : list
+        contains a character's move images
+    moveButtons : list
+        containts the buttons containing a character's moves
+    label_text : tkinter.StringVar
+        presents the comparison of dealer and responder
+    compare_button : tk.Button
+        allows for transition to comparison_frame
+    compare_screen_frame : tkinter.Frame
+        is needed to hold compare_scrolling_frame
+    compare_canvas : tkinter.Canvas
+        needed to house compare_scrolling_frame
+    compare_scrolling_frame : tkinter.Frame
+        holds the comparison text and images
+    compare_scrollbar : tkinter.ttk.Scrollbar
+        is a scrollbar for the compare screen
+    smaller_skyfarer : list
+        contains images of dealer and responder in comparison frame
+    
+    Methods
+    -------
+    character_images(x_size, y size)
+        creates a list that contains the protrait images of the characters
+    move_images(char_id)
+        creates a list that contains the move image of character
+    button_mapping()
+        sets up the character select frame and places character buttons
+    show_moves(char_id)
+        presents the moves of the character at index char_id 
+        in characterRoster
+    show_comparison()
+        presents the comparison of the dealer and responder of a single move
+    to_move_select()
+        moves from character_select to move_select
+    to_character_select()
+        moves from move_select to character_select
+    print_moves_to_button(character, move, buttons_text_id)
+        places a character's move's data in a string and adds that 
+        to self.buttons_text list
+    print_results_to_label(dealer, dealer_move, responder, responder_move)
+        adds the result of comparison to self.label_text
+    select_move(char_id, move)
+        adds a move to self.selected_moves
+    incrementSelectedNum()
+        increments self.selectedNum
+    update_compare_button()
+        updates the compare button state 
+    to_compare_screen()
+        updates root to place compare_frame
+    reset_values()
+        clears moves_select frame
+    initialize_selectedNum()
+        sets self.selected_num to 0
+    from_compare_to_character_select()
+        clears the compare frame and moves to character_select
+    update_dealer_and_responder_labels()
+        updates dealer and responder labels and adds character names
+        and moves
+    show_comparisons_all()
+        presents the comparison of a single dealer move and all of 
+        the responder's moves
+    '''
     def __init__(self):
         self.selected_moves = []
         self.selectedNum = 0
