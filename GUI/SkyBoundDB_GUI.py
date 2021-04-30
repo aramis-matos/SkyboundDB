@@ -13,59 +13,59 @@ class Character_select:
     ----------
 
     selected_moves : list
-        a list that contains tuples that hold selected moves
+            a list that contains tuples that hold selected moves
     selected_num : int
-        holds how many characters have been selected
+            holds how many characters have been selected
     root : tkinter.Tk
-        main tkinter frame
+            main tkinter frame
     character_frame : tkinter.Frame
-        default menu, characters can be selected from here
+            default menu, characters can be selected from here
     move_frame : tkinter.Frame
-        contains the moves of a chosen character
-        can be accessed through character_frame
+            contains the moves of a chosen character
+            can be accessed through character_frame
     canvas : tkinter.canvas
-        where character_moves are placed 
+            where character_moves are placed 
     scrollbar : tkinter.ttk.Scrollbar
-        used to scroll through move_frame
+            used to scroll through move_frame
     scrolling_frame : tkinter.Frame
-        used to accommodate scrollbar 
+            used to accommodate scrollbar 
     skyfarer : list
-        contains the images of the characters from characterRoster
+            contains the images of the characters from characterRoster
     dealer_move_str : str
-        is a constant value
+            is a constant value
     dealer_move : tkinter.StringVar
-        holds the value of the the selected dealer character.
+            holds the value of the the selected dealer character.
     responder_move_str : str
-        is a constant value
+            is a constant value
     responder_move : tkinter.StringVar
-        holds the value of the the selected responder character
+            holds the value of the the selected responder character
     dealer_move_label : tkinter.Label
-        contains dealer_move and presents it
+            contains dealer_move and presents it
     responder_move_label : tkinter.Label
-        contains responder_move and presents it
+            contains responder_move and presents it
     buttons_text : list
-        contains tkinter.StringVar objects corresponding
-        to a character's moves
+            contains tkinter.StringVar objects corresponding
+            to a character's moves
     moves : list
-        contains the moves variable from a Character object
+            contains the moves variable from a Character object
     skyfarer_moves : list
-        contains a character's move images
+            contains a character's move images
     moveButtons : list
-        containts the buttons containing a character's moves
+            containts the buttons containing a character's moves
     label_text : tkinter.StringVar
-        presents the comparison of dealer and responder
+            presents the comparison of dealer and responder
     compare_button : tk.Button
-        allows for transition to comparison_frame
+            allows for transition to comparison_frame
     compare_screen_frame : tkinter.Frame
-        is needed to hold compare_scrolling_frame
+            is needed to hold compare_scrolling_frame
     compare_canvas : tkinter.Canvas
-        needed to house compare_scrolling_frame
+            needed to house compare_scrolling_frame
     compare_scrolling_frame : tkinter.Frame
-        holds the comparison text and images
+            holds the comparison text and images
     compare_scrollbar : tkinter.ttk.Scrollbar
-        is a scrollbar for the compare screen
+            is a scrollbar for the compare screen
     smaller_skyfarer : list
-        contains images of dealer and responder in comparison frame
+            contains images of dealer and responder in comparison frame
     
     Methods
     -------
@@ -148,14 +148,14 @@ class Character_select:
         Parameters
         ----------
         x_size : int
-            the horizontal size of the images being generated
+                the horizontal size of the images being generated
         y_size : int
-            the vertical size of the images being generated
+                the vertical size of the images being generated
 
         Returns
         -------
         New_Character_photo : list
-            contains the images of the cast
+                contains the images of the cast
         """
         baseDir = os.path.dirname(os.path.abspath(__file__))
         if baseDir.find(r'/') == -1:
@@ -184,12 +184,12 @@ class Character_select:
         Parameters
         ----------
         char_id : int
-            is the index of a character in characterRoster list
+                is the index of a character in characterRoster list
         
         Returns
         -------
         New_Move_photo : list
-            contains the move images of the character specified by char_id
+                contains the move images of the character specified by char_id
         """
         baseDir = os.path.dirname(os.path.abspath(__file__))
         default_image_dir = baseDir[:]
@@ -336,11 +336,11 @@ class Character_select:
         Parameters
         ----------
         character : Character
-            is the character whose move you want to print
+                is the character whose move you want to print
         move : str
-            is an string of character.moves list
+                is an string of character.moves list
         buttons_text_id : int
-            position of buttons text list
+                position of buttons text list
         """
         moveToPrint = character.df[move]
         string = character.returnMoveStr(moveToPrint, move)
@@ -353,7 +353,18 @@ class Character_select:
         Parameters
         ----------
         dealer : Character
-            
+                the one dishing out the first move  
+        dealer_move : str
+                the move from dealer.moves that was dealt
+        responder : Character
+                the one responding to the dealer's move
+        responder_move : str
+                the move from responder.moves that was dealt
+
+        Returns
+        -------
+        dealer_color : str
+                the advantage color of a comparison
         """
         resultToPrint, dealer_color = compute_advantage2(
             dealer, dealer_move, responder, responder_move)
@@ -361,22 +372,41 @@ class Character_select:
         return dealer_color
 
     def select_move(self, char_id, move):
+        """
+        adds a move and character to self.selected_moves
+
+        Parameters
+        ----------
+        char_id : int
+                is the index of a character in characterRoster list
+        move : str
+                the move from Character.moves that was chosen
+        """
         if len(self.selected_moves) >= 2:
             self.selected_moves.pop(0)
         self.selected_moves.append((characterRoster[char_id], move))
         print(self.selected_moves)
 
     def incrementSelectedNum(self):
+        """
+        Increments self.SelectedNum, duh
+        """
         self.selectedNum += 1
         print(self.selectedNum)
 
     def update_compare_button(self):
+        """
+        enables or disables the compare button
+        """
         if self.selectedNum >= 2 and self.selected_moves[0][1] != '':
             self.compareButton['state'] = tk.NORMAL
         else:
             self.compareButton['state'] = tk.DISABLED
 
     def to_compare_screen(self):
+        """
+        disables character select frame and packs needed frame for character select 
+        """
         self.dealer_move_label['textvariable'] = self.dealer_move.set(
             self.dealer_move_str)
         self.responder_move_label['textvariable'] = self.responder_move.set(
@@ -404,6 +434,10 @@ class Character_select:
             self.show_comparisons()
 
     def reset_values(self):
+        """
+        resets values from compare frame and moves towards
+        character select
+        """
         self.selected_moves.clear()
         self.selectedNum = 0
         self.update_compare_button()
@@ -412,6 +446,9 @@ class Character_select:
         self.character_frame.pack()
 
     def initialize_selectedNum(self):
+        """
+        initializes selectedNum, duh
+        """
         self.selectedNum = 0
 
     def from_compare_to_character_select(self):
@@ -424,6 +461,9 @@ class Character_select:
         self.character_frame.pack()
 
     def update_dealer_and_responder_labels(self):
+        """
+        updates dealer and responder labels text
+        """
         if len(self.selected_moves) == 1:
             self.dealer_move.set(self.dealer_move_str +
                                  str(self.selected_moves[0]))
@@ -434,6 +474,11 @@ class Character_select:
                 self.responder_move_str+str(self.selected_moves[1]))
 
     def show_comparisons_all(self):
+        """
+        presents the comparison in between a single dealer move
+        and a all of the responder's moves. Character select frame is removed
+        and show_comparison_frame is placed
+        """
         labels_text = []
         dealer = Character(
             0, characterRoster[characterRoster.index(self.selected_moves[0][0])])
