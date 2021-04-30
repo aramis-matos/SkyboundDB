@@ -142,6 +142,21 @@ class Character_select:
         self.root.mainloop()
 
     def character_images(self, x_size, y_size):
+        """
+        creates a list containing the portrait images of the character
+
+        Parameters
+        ----------
+        x_size : int
+            the horizontal size of the images being generated
+        y_size : int
+            the vertical size of the images being generated
+
+        Returns
+        -------
+        New_Character_photo : list
+            contains the images of the cast
+        """
         baseDir = os.path.dirname(os.path.abspath(__file__))
         if baseDir.find(r'/') == -1:
             baseDir = baseDir.replace(r'/', r'\\')
@@ -163,6 +178,19 @@ class Character_select:
         return New_Character_photo
 
     def move_images(self, char_id):
+        """
+        creates a list containing the images of a character's moves
+
+        Parameters
+        ----------
+        char_id : int
+            is the index of a character in characterRoster list
+        
+        Returns
+        -------
+        New_Move_photo : list
+            contains the move images of the character specified by char_id
+        """
         baseDir = os.path.dirname(os.path.abspath(__file__))
         default_image_dir = baseDir[:]
         if baseDir.find(r'/') == -1:
@@ -192,6 +220,10 @@ class Character_select:
         return New_Move_Photo
 
     def button_mapping(self):
+        """
+        presents the character select frame. Character select
+        frame is now active.
+        """
         faceButtons = []
         self.dealer_move_str = "Dealer: "
         self.dealer_move = tk.StringVar()
@@ -217,6 +249,9 @@ class Character_select:
         self.responder_move_label.pack()
 
     def show_moves(self, char_id):
+        """
+        presents the moves select frame. Moves select frame is now active.
+        """
         self.buttons_text = []
         temp_character = Character(0, characterRoster[char_id])
         self.moves = temp_character.moves
@@ -240,6 +275,11 @@ class Character_select:
         cancelButton.grid(row=rowNum + 1, column=1, pady=5)
 
     def show_comparisons(self):
+        """
+        presents the comparison in between a single dealer move
+        and a single responder move. Character select frame is removed
+        and show_comparison_frame is placed
+        """
         self.label_text = tk.StringVar()
         dealer = Character('0', self.selected_moves[0][0])
         dealer_move = dealer.df[(self.selected_moves[0][1])]
@@ -259,6 +299,9 @@ class Character_select:
         returnbutton.grid(row=1, column=1)
 
     def to_move_select(self):
+        """
+        removes character select and inserts move select
+        """
         print("From Character_Select to Move_Select")
         self.character_frame.pack_forget()
         self.move_frame.pack(fill=tk.BOTH, expand=1)
@@ -266,6 +309,9 @@ class Character_select:
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
     def to_character_select(self):
+        """
+        removes moves select and places character select in frame
+        """
         print("From Move_Select to Character_Select")
         self.move_frame.destroy()
         self.scrolling_frame.destroy()
@@ -284,11 +330,31 @@ class Character_select:
         self.character_frame.pack()
 
     def print_moves_to_button(self, character, move, buttons_text_id):
+        """
+        adds text to label_text
+
+        Parameters
+        ----------
+        character : Character
+            is the character whose move you want to print
+        move : str
+            is an string of character.moves list
+        buttons_text_id : int
+            position of buttons text list
+        """
         moveToPrint = character.df[move]
         string = character.returnMoveStr(moveToPrint, move)
         self.buttons_text[buttons_text_id].set(string)
 
     def print_results_to_label(self, dealer, dealer_move, responder, responder_move):
+        """
+        prints the advantage state of the dealer and responder
+
+        Parameters
+        ----------
+        dealer : Character
+            
+        """
         resultToPrint, dealer_color = compute_advantage2(
             dealer, dealer_move, responder, responder_move)
         self.label_text.set(resultToPrint)
