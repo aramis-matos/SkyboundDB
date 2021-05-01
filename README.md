@@ -46,7 +46,9 @@ Left click will select a character and present their moves. Right click will sel
 
 [Aramis Matos](https://github.com/aramis-matos "Aramis Github")  
 [Lenier Gerena](https://github.com/Suaniel "Lenier Github")  
-[Christian Rodriguez](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/C90CEADE-8E44-46C8-8CF5-2893B516067A.png "Christian Github")
+[Christian Rodriguez](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/C90CEADE-8E44-46C8-8CF5-2893B516067A.png "Christian Github")   
+**NOTE**: All images used in the program are from Dustloop. Big shoutout to them for the data as well as the images.
+
 
 
 
