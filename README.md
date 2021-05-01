@@ -41,7 +41,7 @@ Simply install the python 3 interpreter along with pandas and pillow and run the
 
 [Aramis Matos](https://github.com/aramis-matos "Aramis Github")  
 [Lenier Gerena](https://github.com/Suaniel "Lenier Github")  
-[Christian Rodriguez](https://static.wikia.nocookie.net/random-memes/images/1/11/C90CEADE-8E44-46C8-8CF5-2893B516067A.jpeg/revision/latest/scale-to-width-down/1000?cb=20190621213324 "Christian Github")
+[Christian Rodriguez](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/C90CEADE-8E44-46C8-8CF5-2893B516067A.webp"Christian Github")
 
 
 
