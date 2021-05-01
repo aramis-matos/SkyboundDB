@@ -1,1 +1,43 @@
-# COMP4009-Proyect
+# SkyboundDB: The GBFVS Frame Data Calculator
+
+## What is **SkyboundDB**?
+___
+SkyboundDB is a an app that calculates frame advantage for a number of characters from the fighting game Granblue Fantasy Versus. The characters that are currently available are Gran, Djeeta, Zeta, Katalina, Ferry and Zooey.  
+
+## Motivation and background
+The reason why we decided to make this was mainly due to a school project. However, it was also born out of a curiosity to go beyond our comfort zone and tackle the beast we had not previously even looked at, UI. The team is comprised of mostly C++ developers who had only worked on CLI programs. So this project really helped us widen our horizons in the development space.  
+  
+Another reason behind the development was due to a dissatisfaction with the current tools for calculating frame data. It's a rather pen-and-paper sort of affair for the most part and we believe it's a rather unintuitive approach for the beginner.
+
+## Platform used and associated libraries
+
+The project uses Python 3 along with the Pandas and Pillow modules. The reasons behind the selected language and libraries fall under two broad categories:
+- Firstly, Python is a fairly straightforward language and speed was not a major concern in the development of the application.  
+
+- Secondly, Pandas allows for fairly seamless integration of CSV files without doing manual parsing.
+
+## Difficulties faced and possible future developments
+Due to our inexperience with UI development, the use of lambdas and the completely distinct nature from anything we've ever worked with proved to be the most difficult and tedious part of the development process.
+
+We wish to refactor the code quite a bit and add more characters in the future.
+
+___
+## System Requirements
+- Python 3 interpreter
+    - Pandas module
+    - Pillow module
+
+## Install process and usage
+Simply install the python 3 interpreter along with pandas and pillow and run the SkyBoundDB_GUI.py script.
+
+## Program Examples
+
+
+## Credits
+
+[Aramis Matos](https://github.com/aramis-matos "Aramis Github")  
+[Lenier Gerena](https://github.com/Suaniel "Lenier Github")  
+[Christian Rodriguez](https://static.wikia.nocookie.net/random-memes/images/1/11/C90CEADE-8E44-46C8-8CF5-2893B516067A.jpeg/revision/latest/scale-to-width-down/1000?cb=20190621213324 "Christian Github")
+
+
+
