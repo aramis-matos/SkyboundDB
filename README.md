@@ -28,7 +28,8 @@ ___
     - Pillow module
 
 ## Install process and usage
-Simply install the python 3 interpreter along with pandas and pillow and run the SkyBoundDB_GUI.py script.
+Simply install the python 3 interpreter along with pandas and pillow and run the SkyBoundDB_GUI.py script.  
+Left click will select a character and present their moves. Right click will select all of their moves. Note that right click only works for the responder.
 
 ## Program Examples
 
