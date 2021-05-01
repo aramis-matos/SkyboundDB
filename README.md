@@ -32,10 +32,10 @@ Simply install the python 3 interpreter along with pandas and pillow and run the
 
 ## Program Examples
 
-[Main Menu](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/main_menu.png "Main Menu")  
-[Example Move List](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/gran_move_list.png "Gran Move List")  
-[Comparison with One Move](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/comparison_with_one_move.png "Comparison one move")  
-[Comparison with All Moves](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/comparison_with_all.png "Comparison with all moves")
+![Main Menu](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/main_menu.png "Main Menu")  
+![Example Move List](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/gran_move_list.png "Gran Move List")  
+![Comparison with One Move](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/comparison_with_one_move.png "Comparison one move")  
+![Comparison with All Moves](https://github.com/aramis-matos/COMP4009-Proyect/blob/main/example%20pictures/comparison_with_all.png "Comparison with all moves")
 
 ## Credits
 
