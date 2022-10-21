@@ -20,7 +20,9 @@
     }
     frameData = frameData.map(fd => Object.fromEntries(fd.map((x, i) => [cats[i], x])))
     moveSet = Object.fromEntries(fullMoves.map((x, i) => [x, frameData[i]]))
-    console.log(moveSet)
+    console.log(Object.keys(moveSet));
+    // document.querySelector("body").style.display = "none";
+    // document.querySelector("body").append(`${Object.entries(moveSet)}`)
 //     return moveset;
 // }
 
