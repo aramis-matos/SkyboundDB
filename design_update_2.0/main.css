@@ -1,0 +1,37 @@
+body {
+    background-color: #134E89;
+    color: white;
+    font-family: fantasy;
+    text-align: left;
+}
+
+.options * {
+    display: inline-grid;
+    margin: 0.5em 1em;
+    
+}
+
+.options-wrapper {
+    border: 0.3em solid #8A5E13;
+    width: fit-content;
+    /* display: grid; */
+    margin: auto;
+
+}
+
+#moves *{
+    display: inline-grid;
+    margin: 0.5em 1em;
+}
+#moves {
+    text-align: center;
+}
+
+/* 
+#attacker-char, #attacker-move {
+    display: grid;
+} */
+
+/* .button {
+    margin: auto;
+} */
