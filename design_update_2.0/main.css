@@ -1,5 +1,5 @@
 body {
-    background-color: #134E89;
+    background-color: #3385D6;
     color: white;
     font-family: fantasy;
     text-align: left;
@@ -12,7 +12,7 @@ body {
 }
 
 .options-wrapper {
-    border: 0.3em solid #8A5E13;
+    border: 0.3em solid #8A5806;
     width: fit-content;
     /* display: grid; */
     margin: auto;
