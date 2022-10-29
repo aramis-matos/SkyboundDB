@@ -14,17 +14,17 @@
 
 <body>
     <div id="selection" class="selection center_item">
-        <div class="players">
+        <div class="players shadow">
 
             <form action="dealer" id="dealer">
                 <img src="sprites/Gran_Mini.webp" alt="Gran Sprite" class="sprites">
                 <label for="dealer_char">Dealer:</label>
-                <select name="characters" id="dealer_character">
+                <select name="characters" id="dealer_character" class="shadow">
                     <option value="Gran">Gran</option>
                     <option value="Djeeta">Djeeta</option>
                 </select>
                 <label for="dealer_move">Move</label>
-                <select name="dealer_moves" id="dealer_move">
+                <select name="dealer_moves" id="dealer_move" class="shadow">
                     <option value="c.L">c.L</option>
                     <option value="c.M">c.M</option>
                     <option value="c.H">c.H</option>
@@ -33,20 +33,19 @@
             <form action="responder" id="responder">
                 <img src="sprites/Djeeta_Mini.webp" alt="Gran Sprite" class="sprites">
                 <label for="responder_char">Responder:</label>
-                <select name="characters" id="responder_characters">
+                <select name="characters" id="responder_characters" class="shadow">
                     <option value="Gran">Gran</option>
                     <option value="Djeeta">Djeeta</option>
                 </select>
                 <label for="responder_move">Move</label>
-                <select name="responder_moves" id="responder_move">
+                <select name="responder_moves" id="responder_move" class="shadow">
                     <option value="c.L">c.L</option>
                     <option value="c.M">c.M</option>
                     <option value="c.H">c.H</option>
                 </select>
             </form>
         </div>
-
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="shadow">
     </div>
 </body>
 

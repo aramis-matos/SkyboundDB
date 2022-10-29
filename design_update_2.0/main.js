@@ -26,3 +26,56 @@
 //     return moveset;
 // }
 
+[
+    "Anre",
+    "Avatar Belial",
+    "Beelzebub",
+    "Belial",
+    "Cagliostro",
+    "Charlotta",
+    "Djeeta",
+    "Eustace",
+    "Ferry",
+    "Gran",
+    "Katalina",
+    "Ladiva",
+    "Lancelot",
+    "Lowain",
+    "Metera",
+    "Narmaya",
+    "Percival",
+    "Seox",
+    "Soriz",
+    "Vaseraga",
+    "Vira",
+    "Yuel",
+    "Zeta",
+    "Zooey"
+  ]
+
+  [
+    "Anre",
+    "Avatar Belial",
+    "Beelzebub",
+    "Belial",
+    "Cagliostro",
+    "Charlotta",
+    "Djeeta",
+    "Eustace",
+    "Ferry",
+    "Gran",
+    "Katalina",
+    "Ladiva",
+    "Lancelot",
+    "Lowain",
+    "Metera",
+    "Narmaya",
+    "Percival",
+    "Seox",
+    "Soriz",
+    "Vaseraga",
+    "Vira",
+    "Yuel",
+    "Zeta",
+    "Zooey"
+  ]
