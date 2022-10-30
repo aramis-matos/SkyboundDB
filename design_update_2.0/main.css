@@ -17,7 +17,7 @@ form * {
 }
 
 body {
-    background-color: #3385D6;
+    background-color: #3385d6;
     color: white;
     /* font-family: ; */
     text-align: center;
@@ -40,15 +40,71 @@ body {
 
 input[type="submit"] {
     margin-top: 1em;
+    padding: .5em;
     font:0.9em 'Press Start 2P', cursive;
 }
 
 select {
     width: 75%;
     text-align: center;
+    padding: .3em;
 }
 
+select, select option {
+    font-weight: bold;
+    font-size: .98em;
+}
 
 .shadow {
     box-shadow: 0.7em 0.7em rgba(0, 0, 0, 0.5);
+}
+
+.instructions {
+    margin: 3.7em auto 3.7em;
+    border: 0.3em #8A5806 solid;
+    border-radius: 10%;
+    max-width: 55%;
+}
+
+
+.results {
+    margin: 3.7em auto 3.7em;
+    border: 0.3em #8A5806 solid;
+    border-radius: 10%;
+}
+
+ul {
+    text-align: justify;
+    margin-top: 1.7em;
+    margin-bottom: 2em;   
+}
+
+li {
+    margin: 1.5em;
+}
+
+li a:link {
+    text-decoration: none;
+}
+
+#light_moves {
+    color: #e77e90e7;
+}
+
+#mid_moves {
+    color:#7cd87c;
+}
+
+#heavy_moves {
+    color: #b90404;
+}
+
+#uni_moves {
+    color: #0000ffcb;
+}
+
+.table_results {
+    border-collapse: separate;
+    border-spacing: 1.5em 1.5em;
+    table-layout: auto;
 }
