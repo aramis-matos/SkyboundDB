@@ -2,6 +2,7 @@ div.players form {
     display: inline-block;
     border-radius: 25%;
     margin-bottom: 1em;
+    /* padding-right: 1em; */
 }
 
 form * {
@@ -33,8 +34,11 @@ body {
 }
 
 .sprites {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
+    /* height: auto; */
+    /* scale: 0.5; */
+    padding: 1em;
     margin: auto;
 }
 

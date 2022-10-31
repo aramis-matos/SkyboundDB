@@ -17,11 +17,11 @@
         <div class="players shadow">
 
             <form action="dealer" id="dealer">
-                <img src="sprites/Gran_Mini.webp" alt="Gran Sprite" class="sprites">
+                <img src="sprites/Gran_portrait.png" alt="Gran Portrait" class="sprites" name="portrait">
                 <label for="dealer_char">Dealer:</label>
                 <select name="characters" id="dealer_character" class="shadow">
-                    <option value="Djeeta">Djeeta</option>
-                    <option value="Gran">Gran</option>
+                    <!-- <option value="Djeeta">Djeeta</option>
+                    <option value="Gran">Gran</option> -->
                 </select>
                 <label for="dealer_move">Move</label>
                 <select name="dealer_moves" id="dealer_move" class="shadow">
@@ -32,11 +32,11 @@
                 </select>
             </form>
             <form action="responder" id="responder">
-                <img src="sprites/Djeeta_Mini.webp" alt="Gran Sprite" class="sprites">
+                <img src="sprites/Djeeta_portrait.png" alt="Djeeta Portrait" class="sprites" name="portrait">
                 <label for="responder_char">Responder:</label>
                 <select name="characters" id="responder_characters" class="shadow">
-                    <option value="Djeeta">Djeeta</option>
-                    <option value="Gran">Gran</option>
+                    <!-- <option value="Djeeta">Djeeta</option>
+                    <option value="Gran">Gran</option> -->
                 </select>
                 <label for="responder_move">Move</label>
                 <select name="responder_moves" id="responder_move" class="shadow">
@@ -49,19 +49,26 @@
         <a href="results.html"><input type="submit" value="Submit" class="shadow"></a>
     </div>
 
-    <div id= "instructions" class="instructions selection center_item">
+    <div id="instructions" class="instructions selection center_item">
         <p>Instructions for use:</p>
         <ul>
             <li>This program is called SkyboundDB 2.0.</li>
-            <li>Its main purpose is to calculate the <a href="https://glossary.infil.net/?t=Frame%20Advantage">frame advantage</a> of situations in the game <i>Granblue Fantasy: Versus</i>.</li>
-            <li>The dealer is the player that has dealt a certain move, and the responder is the player who is assumed to have blocked said move.</li>
+            <li>Its main purpose is to calculate the <a href="https://glossary.infil.net/?t=Frame%20Advantage">frame
+                    advantage</a> of situations in the game <i>Granblue Fantasy: Versus</i>.</li>
+            <li>The dealer is the player that has dealt a certain move, and the responder is the player who is assumed
+                to have blocked said move.</li>
             <li>On the left choose the move that the dealer will perform.</li>
-            <li>On the right choose the move the responder will perform as a response to blocking the stated dealer move.</li>
-            <li>The program can also check for <b>ALL</b> moves in the dealers character kit in response to the responder's move.</li>
+            <li>On the right choose the move the responder will perform as a response to blocking the stated dealer
+                move.</li>
+            <li>The program can also check for <b>ALL</b> moves in the dealers character kit in response to the
+                responder's move.</li>
             <li>Press <i>Submit</i> to get the results from the selected moves.</li>
-            <li>The program will return the result if said move can be punished or not from the responder's perspective.</li>
-            <li>It will return how <a href="https://glossary.infil.net/?t=Minus">minus</a> a move is, and how much time the responder has to perform the stipulated action to punish.</li>
-            <li>If <b>ALL</b> is selected, it will return a list of all possible moves that can be punished using the responder's move.</li>
+            <li>The program will return the result if said move can be punished or not from the responder's perspective.
+            </li>
+            <li>It will return how <a href="https://glossary.infil.net/?t=Minus">minus</a> a move is, and how much time
+                the responder has to perform the stipulated action to punish.</li>
+            <li>If <b>ALL</b> is selected, it will return a list of all possible moves that can be punished using the
+                responder's move.</li>
             <li>You can also reset back to this screen by pressing <i>Reset</i> in a result page.</li>
             <li>Enjoy the program!</li>
         </ul>
@@ -145,7 +152,8 @@
             </tr>
         </table>
         -->
-    </div> 
+    </div>
 </body>
+<script src="main.js"></script>
 
 </html>
