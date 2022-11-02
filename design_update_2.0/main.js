@@ -819,20 +819,28 @@ char_sels.forEach(sel => sel.addEventListener("change", e => {
 }))
 
 
+function hideInstructions () {
+        // e.preventDefault()
+        let results = document.querySelector("#results")
+        let tableP = document.querySelector("#what_punishes")
+        let instrucP = document.querySelector("#instructions > p")
+        let instruc = document.querySelector("#instructions ul")
+        results.classList.toggle("hidden")
+        tableP.classList.toggle("hidden")
+        instrucP.classList.toggle("hidden")
+        instruc.classList.toggle("hidden")
+        
+        submit.value === "Compare" ? submit.value = "Reset" : submit.value = "Compare"
+        submit.addEventListener('click', hideResults)
+}
 
 // char_sels[0].addEventListener("change", e => addMoves(e, char_sels[0]))
 
-let submit = document.querySelector("#submit")
-submit.addEventListener("click", e => {
-    // e.preventDefault()
-    let results = document.querySelector("#results")
-    let tableP = document.querySelector("#what_punishes")
-    let instrucP = document.querySelector("#instructions > p")
-    let instruc = document.querySelector("#instructions ul")
-    results.classList.toggle("hidden")
-    tableP.classList.toggle("hidden")
-    instrucP.classList.toggle("hidden")
-    instruc.classList.toggle("hidden")
-    
-    submit.value === "Submit" ? submit.value = "Reset" : submit.value = "Submit"
-})
+let submit = document.querySelector("#compare")
+submit.addEventListener("click", hideInstructions, {once:true})
+
+function hideResults () {
+    document.querySelector("#instructions").classList.toggle("hidden")
+    submit.value === "Compare" ? submit.value = "Reset" : submit.value = "Compare"
+}
+
