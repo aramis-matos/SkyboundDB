@@ -824,7 +824,7 @@ char_sels.forEach(sel => sel.addEventListener("change", e => {
 
 let submit = document.querySelector("#submit")
 submit.addEventListener("click", e => {
-    e.preventDefault()
+    // e.preventDefault()
     let results = document.querySelector("#results")
     let tableP = document.querySelector("#what_punishes")
     let instrucP = document.querySelector("#instructions > p")
@@ -834,5 +834,5 @@ submit.addEventListener("click", e => {
     instrucP.classList.toggle("hidden")
     instruc.classList.toggle("hidden")
     
-    submit.value === "Submit" ? submit.value = "Main Menu" : submit.value = "Submit "
+    submit.value === "Submit" ? submit.value = "Reset" : submit.value = "Submit"
 })
