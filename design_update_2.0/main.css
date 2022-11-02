@@ -11,9 +11,9 @@ form * {
 }
 
 .players {
-    border: 0.3em #8A5806 solid;
+    border: 0.3em #D69933 solid;
     border-radius: 10%;
-    background: linear-gradient(#8A5806, #8A5806) no-repeat center/0.3em 100%;
+    background: linear-gradient(#D69933, #D69933) no-repeat center/0.3em 100%;
     
 }
 
@@ -65,7 +65,7 @@ select, select option {
 
 .instructions {
     margin: 3.7em auto 3.7em;
-    border: 0.3em #8A5806 solid;
+    border: 0.3em #D69933 solid;
     border-radius: 10%;
     max-width: 55%;
 }
