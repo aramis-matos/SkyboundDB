@@ -112,3 +112,7 @@ li a:link {
     border-spacing: 1.5em 1.5em;
     table-layout: auto;
 }
+
+.hidden {
+    display: none;
+}

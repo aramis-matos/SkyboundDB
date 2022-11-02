@@ -46,10 +46,11 @@
                 </select>
             </form>
         </div>
-        <a href="results.html"><input type="submit" value="Submit" class="shadow"></a>
+        <!-- <a href="results.html"><input type="submit" value="Submit" class="shadow"></a> -->
+        <input type="submit" value="Submit" class="shadow" id="submit">
     </div>
 
-    <div id="instructions" class="instructions selection center_item">
+    <div id="instructions" class="instructions selection center_item ">
         <p>Instructions for use:</p>
         <ul>
             <li>This program is called SkyboundDB 2.0.</li>
@@ -72,9 +73,9 @@
             <li>You can also reset back to this screen by pressing <i>Reset</i> in a result page.</li>
             <li>Enjoy the program!</li>
         </ul>
-        <!--
-        <table class="table_results">
-            <p>Moves that (<span id="light_moves">c.L</span>, 5f) can Punish:</p>
+        
+        <table class="table_results hidden" id="results">
+            <p id="what_punishes" class="hidden">Moves that (<span id="light_moves">c.L</span>, 5f) can Punish:</p>
             <tr>
                 <th>Move</th>
                 <th>Dealer On Block</th>
@@ -151,7 +152,7 @@
                 <td>14 frame(s)</td>
             </tr>
         </table>
-        -->
+       
     </div>
 </body>
 <script src="main.js"></script>
