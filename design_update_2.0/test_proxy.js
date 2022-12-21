@@ -67,20 +67,18 @@ function getFrameData(dom) {
 
 function getCharFd(name = "Gran") {
     const baseUrl = "https://dustloop.com/w/GBVS/"
-    axios.get(baseUrl + name).then((page) => {
+    axios.get(baseUrl + name)
+    .then((page) => {
         // console.log(page.data)
         const dom = new jsdom.JSDOM(page.data);
-        try {
-            return getFrameData(dom.window.document)
-        }
-        catch (err) {
-            console.log(name)
-            return
-        }
+        return getFrameData(dom.window.document)
+    }).then(frameData => {
+        return {name:frameData}
+    }).catch((err) => {
+        console.log(`Something Went Wrong\n${err}`)
     })
-
 }
 
 // getCharFd(process.argv[2])
 
-let pages = await characters.map(x => getCharFd(x))
+Promise.all(characters.map(x => getCharFd(x))).then(fds => console.log(fds))
