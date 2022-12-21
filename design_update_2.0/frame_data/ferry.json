@@ -1,0 +1,377 @@
+{
+    "c.L": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "6",
+        "Active": "3",
+        "Recovery": "8",
+        "On-Block": "+0 ",
+        "On-Hit": "+4",
+        "Invuln": ""
+    },
+    "c.M": {
+        "Damage": "700",
+        "Guard": "Mid",
+        "Startup": "7",
+        "Active": "6",
+        "Recovery": "9",
+        "On-Block": "+0 ",
+        "On-Hit": "+4",
+        "Invuln": ""
+    },
+    "c.H": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "9",
+        "Active": "4",
+        "Recovery": "12",
+        "On-Block": "+3 ",
+        "On-Hit": "+7",
+        "Invuln": ""
+    },
+    "c.XX": {
+        "Damage": "300",
+        "Guard": "Mid",
+        "Startup": "9",
+        "Active": "3",
+        "Recovery": "15",
+        "On-Block": "-3 ",
+        "On-Hit": "+1",
+        "Invuln": ""
+    },
+    "c.XXX": {
+        "Damage": "300",
+        "Guard": "Mid",
+        "Startup": "12",
+        "Active": "3",
+        "Recovery": "18",
+        "On-Block": "-4 ",
+        "On-Hit": "+0",
+        "Invuln": ""
+    },
+    "f.L": {
+        "Damage": "350",
+        "Guard": "Mid",
+        "Startup": "8",
+        "Active": "3",
+        "Recovery": "15",
+        "On-Block": "-5 ",
+        "On-Hit": "-3",
+        "Invuln": ""
+    },
+    "f.M": {
+        "Damage": "650",
+        "Guard": "Mid",
+        "Startup": "10",
+        "Active": "5",
+        "Recovery": "20",
+        "On-Block": "-10 ",
+        "On-Hit": "-6",
+        "Invuln": ""
+    },
+    "f.H": {
+        "Damage": "900",
+        "Guard": "Mid",
+        "Startup": "14",
+        "Active": "4",
+        "Recovery": "28",
+        "On-Block": "-15 ",
+        "On-Hit": "-11",
+        "Invuln": ""
+    },
+    "2L": {
+        "Damage": "400",
+        "Guard": "Low",
+        "Startup": "6",
+        "Active": "3",
+        "Recovery": "9",
+        "On-Block": "-1 ",
+        "On-Hit": "+3",
+        "Invuln": ""
+    },
+    "2M": {
+        "Damage": "600",
+        "Guard": "Low",
+        "Startup": "12",
+        "Active": "5",
+        "Recovery": "21",
+        "On-Block": "-11 ",
+        "On-Hit": "-7",
+        "Invuln": ""
+    },
+    "2H": {
+        "Damage": "900",
+        "Guard": "All",
+        "Startup": "14",
+        "Active": "6",
+        "Recovery": "21",
+        "On-Block": "-10 ",
+        "On-Hit": "-6",
+        "Invuln": ""
+    },
+    "2U": {
+        "Damage": "700",
+        "Guard": "Low",
+        "Startup": "10",
+        "Active": "6",
+        "Recovery": "17",
+        "On-Block": "-8 ",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "j.L": {
+        "Damage": "400",
+        "Guard": "High/Air",
+        "Startup": "7",
+        "Active": "4",
+        "Recovery": "Until L",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.M": {
+        "Damage": "600",
+        "Guard": "High/Air",
+        "Startup": "9",
+        "Active": "4",
+        "Recovery": "Until L",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.H": {
+        "Damage": "750",
+        "Guard": "High/Air",
+        "Startup": "10",
+        "Active": "4",
+        "Recovery": "Until L",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Ein Ball": {
+        "Damage": "100×15",
+        "Guard": "Mid",
+        "Startup": "17",
+        "Active": "1×9,2×5,1",
+        "Recovery": "22",
+        "On-Block": "-2",
+        "On-Hit": "+2",
+        "Invuln": ""
+    },
+    "Spectral Dive": {
+        "Damage": "600",
+        "Guard": "All",
+        "Startup": "15 [13]",
+        "Active": "Until L+1",
+        "Recovery": "21[16]",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Ghostswing": {
+        "Damage": "Total 56",
+        "Guard": "",
+        "Startup": "",
+        "Active": ""
+    },
+    "Ground Throw": {
+        "Damage": "1500",
+        "Guard": "Throw",
+        "Startup": "7",
+        "Active": "3",
+        "Recovery": "31",
+        "On-Block": "",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "Air Throw": {
+        "Damage": "1500",
+        "Guard": "Throw",
+        "Startup": "5",
+        "Active": "5",
+        "Recovery": "Until L+6",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Overhead Attack": {
+        "Damage": "1000",
+        "Guard": "High",
+        "Startup": "26",
+        "Active": "6",
+        "Recovery": "17",
+        "On-Block": "-4",
+        "On-Hit": "+1",
+        "Invuln": "4-39 Throw 10-37 Low 9-38 Airborne"
+    },
+    "236L": {
+        "Damage": "400",
+        "Guard": "All",
+        "Startup": "21",
+        "Active": "10",
+        "Recovery": "30",
+        "On-Block": "-4 ",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "236M": {
+        "Damage": "400",
+        "Guard": "All",
+        "Startup": "32",
+        "Active": "10",
+        "Recovery": "30",
+        "On-Block": "-4 ",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "236H": {
+        "Damage": "400",
+        "Guard": "All",
+        "Startup": "20",
+        "Active": "10",
+        "Recovery": "30",
+        "On-Block": "+2 ",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Whip It Good": {
+        "Damage": "800→600 / 1200→1000 / 1200→1000",
+        "Guard": "",
+        "Startup": "",
+        "Active": "",
+        "Recovery": "",
+        "On-Block": "",
+        "On-Hit": "KD / KD / HKD",
+        "Invuln": ""
+    },
+    "Heel": {
+        "Damage": "0",
+        "Guard": "",
+        "Startup": "",
+        "Active": "",
+        "Recovery": "",
+        "On-Block": "",
+        "On-Hit": "KD / KD / HKD",
+        "Invuln": ""
+    },
+    "623L": {
+        "Damage": "1000",
+        "Guard": "All",
+        "Startup": "7",
+        "Active": "12",
+        "Recovery": "21",
+        "On-Block": "-16 ",
+        "On-Hit": "KD",
+        "Invuln": ""
+    },
+    "623M": {
+        "Damage": "800, 500",
+        "Guard": "All",
+        "Startup": "13",
+        "Active": "3,9",
+        "Recovery": "21",
+        "On-Block": "-11 ",
+        "On-Hit": "KD",
+        "Invuln": ""
+    },
+    "623H": {
+        "Damage": "450×3",
+        "Guard": "Mid",
+        "Startup": "11",
+        "Active": "3,3,6",
+        "Recovery": "39",
+        "On-Block": "-26 ",
+        "On-Hit": "HKD",
+        "Invuln": "1~22 All"
+    },
+    "214L": {
+        "Damage": "750, 150×2",
+        "Guard": "Mid",
+        "Startup": "16",
+        "Active": "3×4",
+        "Recovery": "16",
+        "On-Block": "-5 ",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "214M": {
+        "Damage": "550, 150×5",
+        "Guard": "Mid",
+        "Startup": "24",
+        "Active": "3×7",
+        "Recovery": "16",
+        "On-Block": "-3 ",
+        "On-Hit": "KD",
+        "Invuln": ""
+    },
+    "214H": {
+        "Damage": "550, 150×5",
+        "Guard": "Mid",
+        "Startup": "16",
+        "Active": "3×7",
+        "Recovery": "16",
+        "On-Block": "-3 ",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "22L": {
+        "Damage": "500, 200×5",
+        "Guard": "All",
+        "Startup": "22",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "22M": {
+        "Damage": "500, 200×5",
+        "Guard": "All",
+        "Startup": "22",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "22H": {
+        "Damage": "200×5",
+        "Guard": "All",
+        "Startup": "45",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Vergiften": {
+        "Damage": "400×5",
+        "Guard": "All",
+        "Startup": "7+9",
+        "Active": "",
+        "Recovery": "Total 41",
+        "On-Block": "+45",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "Hinrichten ": {
+        "Damage": "N/A",
+        "Guard": "7+0",
+        "Startup": "",
+        "Active": "",
+        "Recovery": "",
+        "On-Block": "",
+        "On-Hit": ""
+    },
+    "Aetheryte Requiescat": {
+        "Damage": "4500→3500",
+        "Guard": "Mid",
+        "Startup": "7+6",
+        "Active": "14",
+        "Recovery": "42",
+        "On-Block": "-37",
+        "On-Hit": "HKD",
+        "Invuln": "1~12 All"
+    }
+}

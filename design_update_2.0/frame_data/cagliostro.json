@@ -1,0 +1,472 @@
+{
+    "c.L": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "5",
+        "Active": "3",
+        "Recovery": "6",
+        "On-Block": "+2",
+        "On-Hit": "+6",
+        "Invuln": ""
+    },
+    "c.M": {
+        "Damage": "700",
+        "Guard": "Mid",
+        "Startup": "6",
+        "Active": "3",
+        "Recovery": "15",
+        "On-Block": "-3",
+        "On-Hit": "1",
+        "Invuln": ""
+    },
+    "c.H": {
+        "Damage": "700 + 3×100",
+        "Guard": "Mid",
+        "Startup": "9",
+        "Active": "8",
+        "Recovery": "20",
+        "On-Block": "-3",
+        "On-Hit": "1",
+        "Invuln": ""
+    },
+    "c.XX": {
+        "Damage": "350",
+        "Guard": "Mid",
+        "Startup": "9",
+        "Active": "3",
+        "Recovery": "15",
+        "On-Block": "-3",
+        "On-Hit": "+1",
+        "Invuln": ""
+    },
+    "c.XXX": {
+        "Damage": "280",
+        "Guard": "Mid",
+        "Startup": "12",
+        "Active": "3",
+        "Recovery": "18",
+        "On-Block": "-4",
+        "On-Hit": "0",
+        "Invuln": ""
+    },
+    "f.L": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "6",
+        "Active": "3",
+        "Recovery": "15",
+        "On-Block": "-5",
+        "On-Hit": "-1",
+        "Invuln": ""
+    },
+    "f.M": {
+        "Damage": "700",
+        "Guard": "Mid",
+        "Startup": "10",
+        "Active": "6",
+        "Recovery": "15",
+        "On-Block": "-6",
+        "On-Hit": "-2",
+        "Invuln": ""
+    },
+    "f.H": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "9",
+        "Active": "1,1,4",
+        "Recovery": "18",
+        "On-Block": "-5",
+        "On-Hit": "-1",
+        "Invuln": ""
+    },
+    "2L": {
+        "Damage": "400",
+        "Guard": "Low",
+        "Startup": "6",
+        "Active": "3",
+        "Recovery": "6",
+        "On-Block": "+2",
+        "On-Hit": "+6",
+        "Invuln": ""
+    },
+    "2M": {
+        "Damage": "700",
+        "Guard": "Mid",
+        "Startup": "8",
+        "Active": "3",
+        "Recovery": "16",
+        "On-Block": "-4",
+        "On-Hit": "0",
+        "Invuln": ""
+    },
+    "2H": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "11",
+        "Active": "6",
+        "Recovery": "24",
+        "On-Block": "-12",
+        "On-Hit": "-8",
+        "Invuln": ""
+    },
+    "2U": {
+        "Damage": "700",
+        "Guard": "Low",
+        "Startup": "7",
+        "Active": "6",
+        "Recovery": "21",
+        "On-Block": "-12",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "j.L": {
+        "Damage": "400",
+        "Guard": "High/Air",
+        "Startup": "5",
+        "Active": "Until L",
+        "Recovery": "0",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.M": {
+        "Damage": "600",
+        "Guard": "High/Air",
+        "Startup": "6",
+        "Active": "6",
+        "Recovery": "Until L",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.H": {
+        "Damage": "800",
+        "Guard": "High/Air",
+        "Startup": "8",
+        "Active": "6",
+        "Recovery": "Until L",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "5U": {
+        "Damage": "500",
+        "Guard": "Mid",
+        "Startup": "12",
+        "Active": "4",
+        "Recovery": "17",
+        "On-Block": "-6",
+        "On-Hit": "-2",
+        "Invuln": ""
+    },
+    "j.U": {
+        "Damage": "500",
+        "Guard": "All",
+        "Startup": "11",
+        "Active": "4",
+        "Recovery": "Until L+6",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "6U Level 1": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "18",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "-8",
+        "On-Hit": "-4",
+        "Invuln": ""
+    },
+    "6U Level 2": {
+        "Damage": "600",
+        "Guard": "Mid",
+        "Startup": "18",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "0",
+        "On-Hit": "+4",
+        "Invuln": ""
+    },
+    "6U Level 3": {
+        "Damage": "700",
+        "Guard": "Mid",
+        "Startup": "18",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "+2",
+        "On-Hit": "+6",
+        "Invuln": ""
+    },
+    "6U Level 4": {
+        "Damage": "800",
+        "Guard": "Mid",
+        "Startup": "18",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "+4",
+        "On-Hit": "+8",
+        "Invuln": ""
+    },
+    "6U Level 5": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "18",
+        "Active": "",
+        "Recovery": "Total 45",
+        "On-Block": "+7",
+        "On-Hit": "KD",
+        "Invuln": ""
+    },
+    "j.2/6U Level 1": {
+        "Damage": "200",
+        "Guard": "Mid",
+        "Startup": "22",
+        "Active": "",
+        "Recovery": "Until L+9",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.2/6U Level 2": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "22",
+        "Active": "",
+        "Recovery": "Until L+9",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Ground Throw": {
+        "Damage": "1500",
+        "Guard": "Throw",
+        "Startup": "7",
+        "Active": "3",
+        "Recovery": "31",
+        "On-Block": "",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "Air Throw": {
+        "Damage": "1500",
+        "Guard": "",
+        "Startup": "5",
+        "Active": "5",
+        "Recovery": "Until L+6",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "Overhead Attack": {
+        "Damage": "1000",
+        "Guard": "High",
+        "Startup": "26",
+        "Active": "6",
+        "Recovery": "17",
+        "On-Block": "-4",
+        "On-Hit": "+1",
+        "Invuln": ""
+    },
+    "236L": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "50",
+        "Active": "",
+        "Recovery": "Total 33",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "236M": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "50",
+        "Active": "",
+        "Recovery": "Total 33",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "236H": {
+        "Damage": "400×2",
+        "Guard": "Mid",
+        "Startup": "38",
+        "Active": "",
+        "Recovery": "Total 33",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.236L": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "39",
+        "Active": "",
+        "Recovery": "Until L+4",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.236M": {
+        "Damage": "400",
+        "Guard": "Mid",
+        "Startup": "39",
+        "Active": "",
+        "Recovery": "Until L+4",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.236H": {
+        "Damage": "400×2",
+        "Guard": "Mid",
+        "Startup": "39",
+        "Active": "",
+        "Recovery": "Until L+4",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "623L": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "20",
+        "Active": "5",
+        "Recovery": "27",
+        "On-Block": "-5",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "623M": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "24",
+        "Active": "5",
+        "Recovery": "26",
+        "On-Block": "-4",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "623H": {
+        "Damage": "1200",
+        "Guard": "Mid",
+        "Startup": "20",
+        "Active": "5",
+        "Recovery": "27",
+        "On-Block": "-5",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "214L": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "15",
+        "Active": "10",
+        "Recovery": "16",
+        "On-Block": "-9",
+        "On-Hit": "KD",
+        "Invuln": ""
+    },
+    "214M": {
+        "Damage": "1200",
+        "Guard": "Mid",
+        "Startup": "21",
+        "Active": "13",
+        "Recovery": "16",
+        "On-Block": "-12",
+        "On-Hit": "KD",
+        "Invuln": ""
+    },
+    "214H": {
+        "Damage": "1200",
+        "Guard": "Mid",
+        "Startup": "12",
+        "Active": "13",
+        "Recovery": "16",
+        "On-Block": "-12",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "22L": {
+        "Damage": "",
+        "Guard": "",
+        "Startup": "23",
+        "Active": "",
+        "Recovery": "Total 30",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "22M": {
+        "Damage": "",
+        "Guard": "",
+        "Startup": "24",
+        "Active": "",
+        "Recovery": "Total 39",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "22H": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "13",
+        "Active": "5",
+        "Recovery": "19",
+        "On-Block": "+1",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "j.22L": {
+        "Damage": "",
+        "Guard": "",
+        "Startup": "23",
+        "Active": "",
+        "Recovery": "Total 34",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.22M": {
+        "Damage": "",
+        "Guard": "",
+        "Startup": "24",
+        "Active": "",
+        "Recovery": "Total 39",
+        "On-Block": "",
+        "On-Hit": "",
+        "Invuln": ""
+    },
+    "j.22H": {
+        "Damage": "1000",
+        "Guard": "Mid",
+        "Startup": "13",
+        "Active": "5",
+        "Recovery": "17",
+        "On-Block": "+3",
+        "On-Hit": "HKD",
+        "Invuln": ""
+    },
+    "Ars Magna": {
+        "Damage": "2000 + 5×300",
+        "Guard": "All",
+        "Startup": "13",
+        "Active": "3×18",
+        "Recovery": "49",
+        "On-Block": "-27",
+        "On-Hit": "HKD",
+        "Invuln": "1~15 All"
+    },
+    "Everything's Coming Up Cagliostro": {
+        "Damage": "4500",
+        "Guard": "All",
+        "Startup": "13",
+        "Active": "3×6",
+        "Recovery": "48",
+        "On-Block": "-32",
+        "On-Hit": "HKD",
+        "Invuln": "1~15 All"
+    }
+}

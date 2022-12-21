@@ -1,5 +1,6 @@
 import axios from "axios";
 import jsdom from "jsdom"
+// import express from "express"
 
 const characters = [
     "Anre",
@@ -32,8 +33,10 @@ function getFrameData(dom) {
     let cats = dom.querySelector("div.attack-info thead").textContent;
     cats = cats.split("\n");
     dom.querySelectorAll("p").forEach(x => x.remove())
+    dom.querySelectorAll("span.input-badge").forEach(x => x.remove())
     const regex = new RegExp("(.*\\n){5,}");
     let frameData = [].slice.call(dom.querySelectorAll("div.attack-info tbody tr"));
+    //querySelectorAll("span.input-badge").forEach(x => x.remove())
     frameData = frameData.map(x => x.textContent).filter(x => regex.test(x))
     frameData = frameData.map(x => {
         x = x.trimStart().split("\n")
@@ -44,9 +47,10 @@ function getFrameData(dom) {
             val.splice(0, 1)
         }
     }
+    const relation = x => x.parentNode.parentNode.nextElementSibling.children["1"].children["0"]
     let missingMoves = Array.from(new Set([].slice.call(dom.querySelectorAll("td[class = field_Version]")).map(x => x.textContent)))
-    let moveNames = [].slice.call(dom.querySelectorAll("h3 > span.mw-headline big"));
-    let count = moveNames.map(x => x.parentElement.parentElement.nextElementSibling.lastElementChild.firstElementChild.lastElementChild.childElementCount);
+    let moveNames = [].slice.call(dom.querySelectorAll("h3 > span.mw-headline big")).filter(x => relation(x))//.map(x => x.textContent);
+    let count = moveNames.map(x => relation(x)).filter(x => x).map(x => x.children["1"]).filter(y => y).map(x => x.children["length"]);
     moveNames = moveNames.map(x => x.textContent);
     let fullMoves = [];
     for (let i = 0; i < count.length; i++) {
@@ -59,14 +63,24 @@ function getFrameData(dom) {
     return JSON.stringify(moveSet);
 }
 
-function getCharFd(name) {
-    name = process.argv[2]
+
+
+function getCharFd(name = "Gran") {
     const baseUrl = "https://dustloop.com/w/GBVS/"
     axios.get(baseUrl + name).then((page) => {
+        // console.log(page.data)
         const dom = new jsdom.JSDOM(page.data);
-        console.log(getFrameData(dom.window.document))
+        try {
+            return getFrameData(dom.window.document)
+        }
+        catch (err) {
+            console.log(name)
+            return
+        }
     })
 
 }
 
-getCharFd("Gran")
+// getCharFd(process.argv[2])
+
+let pages = await characters.map(x => getCharFd(x))
